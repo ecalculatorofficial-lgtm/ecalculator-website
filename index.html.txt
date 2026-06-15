@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3640736450417804" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poor People - Financial Goal Calculator & AI-Powered Wealth Planning</title>
+    <meta name="description" content="Calculate your path to financial freedom with Poor People's AI-powered financial calculator. Discover exactly how long it will take to reach your wealth goals with expert financial planning tools and resources.">
+    <meta name="keywords" content="financial calculator, wealth building, financial planning, money goals, savings calculator, investment planning, financial freedom, budgeting tools, personal finance, AI financial planning">
+   
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://poorpeople.com/">
+    <meta property="og:title" content="Poor People - AI-Powered Financial Goal Calculator">
+    <meta property="og:description" content="Calculate your path to financial freedom with our AI-powered financial calculator. Turn your financial dreams into achievable goals with exact timelines.">
+    <meta property="og:image" content="https://poorpeople.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://poorpeople.com/">
+    <meta property="twitter:title" content="Poor People - AI-Powered Financial Goal Calculator">
+    <meta property="twitter:description" content="Calculate your path to financial freedom with our AI-powered financial calculator. Turn your financial dreams into achievable goals with exact timelines.">
+    <meta property="twitter:image" content="https://poorpeople.com/og-image.jpg">
+
+    <!-- Optimized CDN Resources -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+    <style>
+        :root {
+            --primary: #8B4513;
+            --primary-dark: #654321;
+            --secondary: #D2B48C;
+            --accent: #CD853F;
+            --success: #228B22;
+            --warning: #DAA520;
+            --error: #DC143C;
+            --glass: rgba(245, 245, 220, 0.85);
+            --glass-dark: rgba(139, 69, 19, 0.2);
+            --text-primary: #5D4E37;
+            --text-secondary: #8B4513;
+            --text-muted: #A0522D;
+            --input-bg: rgba(245, 245, 220, 0.9);
+            --input-text: #5D4E37;
+            --input-placeholder: rgba(93, 78, 55, 0.7);
+            --background-light: linear-gradient(135deg, #FFF8DC 0%, #F5F5DC 50%, #FAEBD7 100%);
+            --background-dark: linear-gradient(135deg, #2F1B14 0%, #1E1E1E 50%, #3C2414 100%);
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--background-light);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        body.dark {
+            background: var(--background-dark);
+            --text-primary: #F5DEB3;
+            --text-secondary: #DEB887;
+            --text-muted: #D2B48C;
+            --input-bg: rgba(245, 222, 179, 0.35);
+            --input-text: #F5DEB3;
+            --input-placeholder: rgba(245, 222, 179, 0.7);
+            --glass: rgba(139, 69, 19, 0.3);
+        }
+
+        .glass-effect {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            box-shadow: 0 8px 32px rgba(139, 69, 19, 0.15);
+        }
+
+        .dark .glass-effect {
+            background: rgba(139, 69, 19, 0.25);
+            border: 1px solid rgba(245, 222, 179, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .gradient-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            transition: all 0.3s ease;
+            color: white !important;
+            font-weight: 600;
+        }
+
+        .gradient-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.4);
+        }
+
+        .float-animation {
+            animation: float 12s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(90deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            75% { transform: translateY(-10px) rotate(270deg); }
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 69, 19, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(139, 69, 19, 0.6); }
+        }
+
+        .target-btn {
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            color: var(--text-primary) !important;
+            background: rgba(245, 245, 220, 0.6);
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .target-btn:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            background: rgba(245, 245, 220, 0.8);
+            color: var(--text-primary) !important;
+        }
+
+        .dark .target-btn:hover {
+            background: rgba(245, 222, 179, 0.3);
+            color: var(--text-primary) !important;
+        }
+
+        .target-btn.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white !important;
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.4);
+            text-shadow: none;
+        }
+
+        .nav-item {
+            position: relative;
+            overflow: hidden;
+            color: var(--text-primary) !important;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover::before,
+        .nav-item.active::before {
+            width: 100%;
+        }
+
+        .nav-item:hover {
+            color: var(--accent) !important;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .loading-spinner {
+            border: 3px solid rgba(139, 69, 19, 0.1);
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .stat-card {
+            background: rgba(245, 245, 220, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(245, 245, 220, 0.85);
+        }
+
+        .dark .stat-card {
+            background: rgba(139, 69, 19, 0.25);
+            border: 1px solid rgba(245, 222, 179, 0.25);
+        }
+
+        .dark .stat-card:hover {
+            background: rgba(139, 69, 19, 0.35);
+        }
+
+        /* Enhanced Input Styling for Better Dark Mode Visibility */
+        input, textarea {
+            background: var(--input-bg) !important;
+            color: var(--input-text) !important;
+            border: 2px solid rgba(139, 69, 19, 0.3) !important;
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark input, .dark textarea {
+            background: rgba(245, 222, 179, 0.4) !important;
+            color: #F5DEB3 !important;
+            border: 2px solid rgba(245, 222, 179, 0.4) !important;
+            font-weight: 700;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--input-placeholder) !important;
+            font-weight: 500;
+        }
+
+        .dark input::placeholder, .dark textarea::placeholder {
+            color: rgba(245, 222, 179, 0.8) !important;
+            font-weight: 600;
+        }
+
+        input:focus, textarea:focus {
+            background: rgba(245, 245, 220, 0.95) !important;
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 0 3px rgba(205, 133, 63, 0.3) !important;
+        }
+
+        .dark input:focus, .dark textarea:focus {
+            background: rgba(245, 222, 179, 0.5) !important;
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 0 3px rgba(205, 133, 63, 0.4) !important;
+        }
+
+        /* Enhanced Text Contrast */
+        .text-primary {
+            color: var(--text-primary) !important;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-secondary {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-muted {
+            color: var(--text-muted) !important;
+            font-weight: 400;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Enhanced Back Button Visibility - FIXED */
+        .back-btn {
+            position: fixed;
+            top: 120px;
+            left: 20px;
+            z-index: 50;
+            transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: move;
+            user-select: none;
+            touch-action: none;
+            /* Light mode: dark background with white icon */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%) !important;
+            color: white !important;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        .dark .back-btn {
+            /* Dark mode: lighter background with good contrast */
+            background: linear-gradient(135deg, #CD853F 0%, #DEB887 100%) !important;
+            color: #2F1B14 !important;
+            border: 2px solid rgba(245, 222, 179, 0.4);
+            box-shadow: 0 4px 20px rgba(205, 133, 63, 0.6);
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .back-btn.dragging {
+            z-index: 60;
+            transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.5);
+            transition: transform 0.1s ease;
+        }
+
+        .dark .back-btn.dragging {
+            box-shadow: 0 10px 30px rgba(205, 133, 63, 0.7);
+        }
+
+        /* Legal Page Enhancements */
+        .legal-content {
+            line-height: 1.7;
+        }
+
+        .legal-content h2 {
+            color: var(--text-primary) !important;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .legal-content h3 {
+            color: var(--text-secondary) !important;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .legal-content p {
+            color: var(--text-secondary) !important;
+            margin-bottom: 1rem;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .legal-content ul {
+            color: var(--text-secondary) !important;
+            margin-bottom: 1rem;
+        }
+
+        .legal-content li {
+            margin-bottom: 0.5rem;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pinterest-icon {
+            background: #E60023;
+        }
+
+        .youtube-icon {
+            background: #FF0000;
+        }
+
+        /* Enhanced Logo Styling */
+        .logo-container {
+            position: relative;
+        }
+
+        .logo-text {
+            color: var(--text-primary) !important;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-subtitle {
+            color: var(--text-muted) !important;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Enhanced Dropdown Menu */
+        .dropdown-menu {
+            background: rgba(245, 245, 220, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 69, 19, 0.3);
+        }
+
+        .dropdown-item {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item:hover {
+            background: rgba(245, 245, 220, 0.6) !important;
+        }
+
+        /* Enhanced Chart Text Visibility for Dark Mode - FIXED */
+        .dark .chart-container h3 {
+            color: #F5DEB3 !important;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .back-btn {
+                top: 100px;
+                left: 10px;
+            }
+           
+            .social-icons {
+                gap: 4px;
+            }
+           
+            .social-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .text-primary {
+                font-size: 0.95em;
+            }
+        }
+
+        /* Enhanced Button Styling */
+        button {
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Text Enhancement */
+        footer {
+            background: rgba(139, 69, 19, 0.2);
+            backdrop-filter: blur(20px);
+        }
+
+        footer .text-primary,
+        footer .text-secondary,
+        footer .text-muted {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Mobile Menu Enhancement */
+        #mobile-menu {
+            background: rgba(245, 245, 220, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 69, 19, 0.3);
+        }
+
+        #mobile-menu a {
+            color: var(--text-primary) !important;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Accent color for highlights */
+        .text-accent {
+            color: var(--accent) !important;
+            font-weight: 700;
+        }
+
+        /* PDF Export Optimization */
+        @media print {
+            body {
+                background: white !important;
+                color: #333 !important;
+            }
+           
+            .glass-effect {
+                background: rgba(245, 245, 220, 0.1) !important;
+                border: 1px solid #ddd !important;
+            }
+           
+            .back-btn {
+                display: none !important;
+            }
+           
+            nav {
+                position: relative !important;
+            }
+           
+            .page {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="transition-all duration-300">
+    <!-- Enhanced Cursor-Following Back Button -->
+    <button id="back-btn" class="back-btn glass-effect w-12 h-12 rounded-full items-center justify-center text-white hidden" onclick="goBack()" onmousedown="startDrag(event)" ontouchstart="startDrag(event)">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo-container flex items-center space-x-3 cursor-pointer" onclick="showPage('calculator')">
+                    <div class="w-12 h-12 gradient-btn rounded-xl flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold logo-text">Poor People</h1>
+                        <p class="text-xs logo-subtitle">Financial Freedom Calculator</p>
+                    </div>
+                </div>
+               
+                <div class="hidden md:flex items-center space-x-8">
+                    <a class="nav-item cursor-pointer" onclick="showPage('calculator')">Calculator</a>
+                    <a class="nav-item cursor-pointer" onclick="showPage('blog')">Blog</a>
+                    <a class="nav-item cursor-pointer" onclick="showPage('about')">About</a>
+                    <a class="nav-item cursor-pointer" onclick="showPage('contact')">Contact</a>
+                    <div class="relative group">
+                        <button class="nav-item flex items-center">
+                            Legal <i class="fas fa-chevron-down ml-1"></i>
+                        </button>
+                        <div class="dropdown-menu absolute top-full right-0 mt-2 w-48 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a onclick="showPage('privacy')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Privacy Policy</a>
+                            <a onclick="showPage('terms')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Terms & Conditions</a>
+                            <a onclick="showPage('disclaimer')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Disclaimer</a>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleTheme()" class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center text-primary hover:bg-white hover:bg-opacity-10">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 glass-effect rounded-lg flex items-center justify-center text-primary">
+                        <i id="mobile-menu-icon" class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+           
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden mt-4 hidden">
+                <div class="rounded-lg p-4 space-y-2">
+                    <a onclick="showPage('calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer">Calculator</a>
+                    <a onclick="showPage('blog'); toggleMobileMenu()" class="block py-2 cursor-pointer">Blog</a>
+                    <a onclick="showPage('about'); toggleMobileMenu()" class="block py-2 cursor-pointer">About</a>
+                    <a onclick="showPage('contact'); toggleMobileMenu()" class="block py-2 cursor-pointer">Contact</a>
+                    <div class="border-t border-white border-opacity-20 pt-2">
+                        <a onclick="showPage('privacy'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Privacy Policy</a>
+                        <a onclick="showPage('terms'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Terms & Conditions</a>
+                        <a onclick="showPage('disclaimer'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        <!-- Calculator Page -->
+        <div id="calculator-page" class="page">
+            <div class="container mx-auto px-6 py-12">
+                <!-- Hero Section -->
+                <div class="text-center mb-16 slide-in">
+                    <h1 class="text-5xl md:text-6xl font-bold text-primary mb-6">
+                        Calculate Your Path to <span class="text-accent">Financial Freedom</span>
+                    </h1>
+                    <p class="text-xl text-secondary max-w-3xl mx-auto mb-8">
+                        Discover exactly how long it will take to reach your wealth goals with our AI-powered financial calculator.
+                    </p>
+                    <div class="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Financial Input Section -->
+                <div class="max-w-4xl mx-auto mb-12">
+                    <div class="glass-effect rounded-2xl p-8 slide-in">
+                        <h2 class="text-3xl font-bold text-primary mb-8 text-center">Your Financial Information</h2>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-4">
+                                <label class="block text-primary font-medium">Monthly Income</label>
+                                <div class="relative">
+                                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
+                                    <input type="number" id="monthly-income" placeholder="Enter your monthly income"
+                                           class="w-full pl-8 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <label class="block text-primary font-medium">Monthly Expenses</label>
+                                <div class="relative">
+                                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
+                                    <input type="number" id="monthly-expenses" placeholder="Enter your monthly expenses"
+                                           class="w-full pl-8 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 p-6 glass-effect rounded-lg">
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-medium">Monthly Savings</span>
+                                <span id="monthly-savings" class="text-2xl font-bold text-accent">$0</span>
+                            </div>
+                            <div class="mt-4 progress-bar" style="width: 0%" id="savings-progress"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Target Selection -->
+                <div class="max-w-6xl mx-auto mb-12">
+                    <div class="glass-effect rounded-2xl p-8 slide-in">
+                        <h2 class="text-3xl font-bold text-primary mb-8 text-center">Your Financial Goal</h2>
+                       
+                        <div class="mb-8">
+                            <label class="block text-primary font-medium mb-4">Custom Target Amount</label>
+                            <div class="relative max-w-md mx-auto">
+                                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
+                                <input type="text" id="custom-target" placeholder="Enter custom amount"
+                                       class="w-full pl-8 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-semibold text-primary text-center">Quick Targets</h3>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3" id="quick-targets">
+                                <!-- Quick target buttons will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div id="results-section" class="max-w-6xl mx-auto hidden">
+                    <div class="glass-effect rounded-2xl p-8 slide-in">
+                        <h2 class="text-3xl font-bold text-primary mb-8 text-center">Your Path to Financial Freedom</h2>
+                       
+                        <!-- Stats Cards -->
+                        <div class="grid md:grid-cols-3 gap-6 mb-8">
+                            <div class="stat-card rounded-xl p-6 text-center">
+                                <div class="w-16 h-16 gradient-btn rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
+                                    <i class="fas fa-target text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-primary mb-2">Target Amount</h3>
+                                <p id="result-target" class="text-2xl font-bold text-accent">$0</p>
+                            </div>
+                            <div class="stat-card rounded-xl p-6 text-center">
+                                <div class="w-16 h-16 gradient-btn rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
+                                    <i class="fas fa-clock text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-primary mb-2">Time to Goal</h3>
+                                <p id="result-time" class="text-2xl font-bold text-accent">0 months</p>
+                            </div>
+                            <div class="stat-card rounded-xl p-6 text-center">
+                                <div class="w-16 h-16 gradient-btn rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
+                                    <i class="fas fa-chart-line text-white text-2xl"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-primary mb-2">Monthly Savings</h3>
+                                <p id="result-savings" class="text-2xl font-bold text-accent">$0</p>
+                            </div>
+                        </div>
+
+                        <!-- Chart -->
+                        <div class="glass-effect rounded-xl p-6">
+                            <h3 class="text-xl font-semibold text-primary mb-4 text-center">Savings Growth Timeline</h3>
+                            <div class="chart-container" style="height: 400px;">
+                                <canvas id="savingsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Page -->
+        <div id="blog-page" class="page hidden">
+            <div class="container mx-auto px-6 py-12">
+                <div class="text-center mb-16 slide-in">
+                    <h1 class="text-5xl font-bold text-primary mb-6">
+                        Financial <span class="text-accent">Wisdom</span> & Resources
+                    </h1>
+                    <p class="text-xl text-secondary max-w-3xl mx-auto">
+                        Explore expert insights, practical tips, and powerful tools to accelerate your journey to financial freedom.
+                    </p>
+                </div>
+
+                <!-- Comprehensive Blog Content -->
+                <div class="max-w-4xl mx-auto mb-12">
+                    <div class="glass-effect rounded-2xl overflow-hidden blog-card">
+                        <div class="p-8">
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="px-4 py-2 text-sm font-medium bg-primary bg-opacity-20 text-primary rounded-full">
+                                    Featured Article
+                                </span>
+                            </div>
+                           
+                            <h2 class="text-3xl font-bold text-primary mb-6">
+                                The Essential Guide to Building Wealth: Strategic Financial Planning for 2025
+                            </h2>
+                           
+                            <div class="space-y-6 text-secondary leading-relaxed">
+                                <p class="text-lg">
+                                    Building lasting wealth requires more than just earning money—it demands strategic planning, disciplined execution, and a clear understanding of financial principles. This comprehensive guide will walk you through proven strategies to accelerate your wealth-building journey, regardless of your current financial position.
+                                </p>
+
+                                <h3 class="text-2xl font-bold text-primary mt-8 mb-4">Understanding Your Financial Foundation</h3>
+                               
+                                <p>
+                                    Before diving into investment strategies or complex financial products, it's crucial to establish a solid foundation. This begins with understanding your cash flow—the difference between what you earn and what you spend. Our financial calculator helps you visualize this relationship and project your wealth accumulation timeline based on consistent savings habits.
+                                </p>
+
+                                <p>
+                                    Many individuals underestimate the impact of small, consistent actions. Saving just $500 monthly with a 7% annual return can grow to over $500,000 in 25 years. The key is starting early and maintaining consistency, which our calculator demonstrates through precise projections.
+                                </p>
+
+                                <h3 class="text-2xl font-bold text-primary mt-8 mb-4">The Psychology of Wealth Building</h3>
+                               
+                                <p>
+                                    Successful wealth building is fundamentally about behavior modification. It requires developing the mental discipline to delay immediate gratification for long-term security. Understanding your relationship with money, identifying spending triggers, and creating automated systems for saving are crucial steps in this journey.
+                                </p>
+
+                                <h3 class="text-2xl font-bold text-primary mt-8 mb-4">Strategic Budget Optimization</h3>
+                               
+                                <div class="bg-primary bg-opacity-20 p-6 rounded-lg mb-6 backdrop-filter backdrop-blur-10">
+                                    <h4 class="text-xl font-semibold text-primary mb-3">Effective Budgeting Framework:</h4>
+                                    <ul class="space-y-2">
+                                        <li><strong class="text-primary">50% - Essential Expenses:</strong> Housing, utilities, minimum debt payments, groceries, transportation</li>
+                                        <li><strong class="text-primary">30% - Discretionary Spending:</strong> Entertainment, dining out, hobbies, non-essential purchases</li>
+                                        <li><strong class="text-primary">20% - Wealth Building:</strong> Emergency fund, retirement accounts, investment portfolios</li>
+                                    </ul>
+                                </div>
+
+                                <p>
+                                    For those committed to accelerating their wealth-building timeline, consider the aggressive 70/10/20 approach: 70% for essential expenses, 10% for discretionary spending, and 20% for wealth building. This approach requires lifestyle optimization but can significantly reduce your timeline to financial independence.
+                                </p>
+
+                                <h3 class="text-2xl font-bold text-primary mt-8 mb-4">Investment Principles That Work</h3>
+                               
+                                <p>
+                                    The investment landscape offers countless options, but successful wealth building relies on time-tested principles rather than complex strategies. For most individuals, a diversified portfolio of low-cost index funds provides optimal returns with minimal effort and risk. Historical data consistently shows that simple, diversified approaches outperform actively managed alternatives over extended periods.
+                                </p>
+
+                                <h3 class="text-2xl font-bold text-primary mt-8 mb-4">Your Actionable Wealth-Building Plan</h3>
+                               
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <span class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4 mt-1">1</span>
+                                        <div>
+                                            <h4 class="font-semibold text-primary mb-2">Assess Your Current Financial Position</h4>
+                                            <p>Use our financial calculator to determine your net worth, monthly savings capacity, and timeline to various wealth milestones. This baseline assessment provides clarity on your starting point and potential trajectory.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4 mt-1">2</span>
+                                        <div>
+                                            <h4 class="font-semibold text-primary mb-2">Optimize Your Savings Rate</h4>
+                                            <p>Analyze every expense category to identify cost-reduction opportunities without significantly compromising your quality of life. Small optimizations compound over time and can dramatically accelerate your wealth-building journey.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold mr-4 mt-1">3</span>
+                                        <div>
+                                            <h4 class="font-semibold text-primary mb-2">Build Your Financial Safety Net</h4>
+                                            <p>Before aggressive investing, establish an emergency fund covering 3-6 months of expenses in a high-yield savings account. This financial cushion prevents you from disrupting your investment strategy during unexpected life events.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h3 class="text-2xl font-bold text-primary mt-8 mb-4">Conclusion: Your Journey Begins Today</h3>
+                               
+                                <p>
+                                    Building significant wealth is achievable for anyone willing to prioritize their financial future over immediate consumption. The strategies outlined in this guide have helped countless individuals create substantial wealth, regardless of their starting income level.
+                                </p>
+
+                                <p>
+                                    Regularly use our financial calculator to track your progress and maintain motivation. Witnessing your wealth grow month by month, even in small increments, builds the momentum necessary for long-term success. The most important step is the first one—start today with whatever amount you can consistently save.
+                                </p>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mt-8">
+                                <span class="px-3 py-1 text-xs bg-primary bg-opacity-20 text-primary rounded-full font-medium">
+                                    #wealth-building
+                                </span>
+                                <span class="px-3 py-1 text-xs bg-primary bg-opacity-20 text-primary rounded-full font-medium">
+                                    #financial-planning
+                                </span>
+                                <span class="px-3 py-1 text-xs bg-primary bg-opacity-20 text-primary rounded-full font-medium">
+                                    #budgeting-tips
+                                </span>
+                                <span class="px-3 py-1 text-xs bg-primary bg-opacity-20 text-primary rounded-full font-medium">
+                                    #investment-strategy
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO Content -->
+                <div class="glass-effect rounded-2xl p-8">
+                    <h2 class="text-3xl font-bold text-primary mb-6">Your Complete Financial Planning Resource Center</h2>
+                    <div class="legal-content space-y-6">
+                        <p>Welcome to Poor People's comprehensive financial calculator and wealth-building resource center. Our platform provides advanced financial planning tools, expert insights, and actionable strategies to help you achieve financial independence faster and more efficiently than traditional methods.</p>
+                       
+                        <h3 class="text-2xl font-bold text-primary">Advanced Financial Calculators & Planning Tools</h3>
+                        <p>Our AI-powered financial goal calculator helps you determine precise timelines for reaching your wealth targets. Whether you're building your first emergency fund, saving for major purchases, or planning for retirement, our tools provide accurate projections and actionable insights.</p>
+                       
+                        <h3 class="text-2xl font-bold text-primary">Comprehensive Financial Education Topics</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Wealth Accumulation Strategies and Long-term Investment Planning</li>
+                            <li>Budget Optimization Tools and Expense Management Systems</li>
+                            <li>Debt Elimination Calculators and Credit Score Improvement</li>
+                            <li>Emergency Fund Planning and Financial Risk Management</li>
+                            <li>Retirement Planning and Tax-Advantaged Account Strategies</li>
+                            <li>Financial Psychology and Behavioral Money Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about-page" class="page hidden">
+            <div class="container mx-auto px-6 py-12">
+                <div class="text-center mb-16 slide-in">
+                    <h1 class="text-5xl font-bold text-primary mb-6">
+                        About <span class="text-accent">Poor People</span>
+                    </h1>
+                    <p class="text-xl text-secondary">Empowering your journey to financial freedom through intelligent tools and expert guidance.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-12">
+                    <div class="glass-effect rounded-2xl p-8 slide-in">
+                        <h2 class="text-3xl font-bold text-primary mb-6">Our Mission</h2>
+                        <p class="text-lg text-secondary leading-relaxed">
+                            At Poor People, we believe that financial freedom should be accessible to everyone, regardless of their current economic situation. Our mission is to democratize financial planning by providing powerful, user-friendly tools that help anyone calculate their path to financial independence and wealth building.
+                        </p>
+                    </div>
+
+                    <div class="glass-effect rounded-2xl p-8 slide-in">
+                        <h2 class="text-3xl font-bold text-primary mb-6">Core Values</h2>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <h3 class="text-xl font-semibold text-primary">Universal Accessibility</h3>
+                                <p class="text-secondary">Financial planning tools should be available to everyone, regardless of their background, income level, or current financial situation.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-xl font-semibold text-primary">Complete Transparency</h3>
+                                <p class="text-secondary">We believe in clear, honest calculations with no hidden fees, complex terms, or misleading information.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-xl font-semibold text-primary">Elegant Simplicity</h3>
+                                <p class="text-secondary">Complex financial concepts should be presented in simple, understandable formats that anyone can use effectively.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-xl font-semibold text-primary">Personal Empowerment</h3>
+                                <p class="text-secondary">We provide the tools and knowledge you need to take complete control of your financial future and build lasting wealth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact-page" class="page hidden">
+            <div class="container mx-auto px-6 py-12">
+                <div class="text-center mb-16 slide-in">
+                    <h1 class="text-5xl font-bold text-primary mb-6">
+                        Get in <span class="text-accent">Touch</span>
+                    </h1>
+                    <p class="text-xl text-secondary">Have questions about our financial calculator? We're here to help!</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div class="glass-effect rounded-2xl p-8">
+                            <h2 class="text-2xl font-bold text-primary mb-6">Contact Information</h2>
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-12 h-12 gradient-btn rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary">Email</h3>
+                                    <p class="text-secondary">poorpeopleofficial@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-effect rounded-2xl p-8">
+                        <h2 class="text-2xl font-bold text-primary mb-6">Send us a Message</h2>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label class="block text-primary font-medium mb-2">Full Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label class="block text-primary font-medium mb-2">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Enter your email">
+                            </div>
+                            <div>
+                                <label class="block text-primary font-medium mb-2">Message</label>
+                                <textarea rows="6" required class="w-full px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent resize-none" placeholder="How can we help you?"></textarea>
+                            </div>
+                            <button type="submit" class="w-full gradient-btn text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Legal Pages -->
+        <div id="privacy-page" class="page hidden">
+            <div class="container mx-auto px-6 py-12">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h1 class="text-4xl font-bold text-primary mb-4">Privacy Policy</h1>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-8">
+                        <div class="legal-content space-y-6">
+                            <h2 class="text-2xl font-bold text-primary">Information Collection and Usage</h2>
+                            <p>Poor People ("we," "us," or "our") is committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, and protect your information when you use our financial calculator and website services.</p>
+
+                            <h3 class="text-xl font-semibold text-secondary">Types of Information We Collect</h3>
+                            <p>We may collect the following types of information to provide and improve our services:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Contact information (name, email address) when you voluntarily contact us</li>
+                                <li>Financial data you enter into our calculators (stored locally on your device only)</li>
+                                <li>Usage analytics and website interaction data to improve user experience</li>
+                                <li>Technical information (browser type, device information) for website optimization</li>
+                            </ul>
+
+                            <h2 class="text-2xl font-bold text-primary">How We Use Your Information</h2>
+                            <p>We use collected information for the following legitimate purposes:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>To provide and continuously improve our financial calculator services</li>
+                                <li>To respond promptly to your inquiries and customer support requests</li>
+                                <li>To analyze website usage patterns and enhance user experience</li>
+                                <li>To send important service updates (only if you explicitly opt-in)</li>
+                                <li>To ensure website security and proper functionality</li>
+                            </ul>
+
+                            <h2 class="text-2xl font-bold text-primary">Data Security and Protection</h2>
+                            <p>We implement industry-standard security measures to protect your personal information. Your financial calculations are processed locally on your device and are not transmitted to our servers unless you explicitly choose to contact us.</p>
+
+                            <h2 class="text-2xl font-bold text-primary">Contact Information</h2>
+                            <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+                            <p><strong>Email:</strong> poorpeopleofficial@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="terms-page" class="page hidden">
+            <div class="container mx-auto px-6 py-12">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h1 class="text-4xl font-bold text-primary mb-4">Terms and Conditions</h1>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-8">
+                        <div class="legal-content space-y-6">
+                            <h2 class="text-2xl font-bold text-primary">Agreement Acceptance</h2>
+                            <p>By accessing and using Poor People's financial calculator and website services, you accept and agree to be bound by the terms and provisions of this agreement. These Terms and Conditions govern your use of our website and all associated services.</p>
+
+                            <h2 class="text-2xl font-bold text-primary">Service Description</h2>
+                            <p>Poor People provides comprehensive financial planning tools, calculators, and educational content designed to help users achieve their financial goals. Our services include:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Advanced financial goal calculators and planning tools</li>
+                                <li>Educational content about wealth building and financial planning strategies</li>
+                                <li>Resources and guides for improving financial literacy and decision-making</li>
+                                <li>Blog content with financial tips, strategies, and market insights</li>
+                            </ul>
+
+                            <h2 class="text-2xl font-bold text-primary">User Responsibilities</h2>
+                            <p>Users agree to use our services responsibly and in accordance with applicable laws. You are responsible for the accuracy of information you input into our calculators and for making informed financial decisions based on the results.</p>
+
+                            <h2 class="text-2xl font-bold text-primary">Intellectual Property</h2>
+                            <p>All content, tools, and resources provided on our website are the intellectual property of Poor People and are protected by applicable copyright and trademark laws.</p>
+
+                            <h2 class="text-2xl font-bold text-primary">Contact Information</h2>
+                            <p>For questions about these Terms and Conditions, please contact us at:</p>
+                            <p><strong>Email:</strong> poorpeopleofficial@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="disclaimer-page" class="page hidden">
+            <div class="container mx-auto px-6 py-12">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h1 class="text-4xl font-bold text-primary mb-4">Disclaimer</h1>
+                        <p class="text-secondary">Important information about our services and limitations</p>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-8">
+                        <div class="legal-content space-y-6">
+                            <h2 class="text-2xl font-bold text-primary">General Information Disclaimer</h2>
+                            <p>The information provided on the Poor People website, including our financial calculators, tools, and educational content, is for general informational and educational purposes only. This information should not be considered as professional financial, investment, tax, or legal advice tailored to your specific situation.</p>
+
+                            <h2 class="text-2xl font-bold text-primary">Calculator Accuracy and Limitations</h2>
+                            <p>While we strive to provide accurate calculations and realistic projections, please understand that:</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>All calculations are estimates based on the data and assumptions you provide</li>
+                                <li>Results may vary significantly based on market conditions, economic changes, and unforeseen circumstances</li>
+                                <li>Past performance and historical data do not guarantee future investment results</li>
+                                <li>Our calculators use simplified mathematical models and may not account for all relevant variables</li>
+                                <li>Always verify calculations and consult with qualified financial professionals before making major financial decisions</li>
+                            </ul>
+
+                            <h2 class="text-2xl font-bold text-primary">Professional Advice Recommendation</h2>
+                            <p>We strongly recommend consulting with qualified financial advisors, tax professionals, and legal experts before making significant financial decisions. Our tools are designed to supplement, not replace, professional financial guidance.</p>
+
+                            <h2 class="text-2xl font-bold text-primary">Limitation of Liability</h2>
+                            <p>Poor People and its creators shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of our calculators, tools, or information provided on this website.</p>
+
+                            <h2 class="text-2xl font-bold text-primary">Contact Us</h2>
+                            <p>If you have questions about this disclaimer or our services, please contact us at:</p>
+                            <p><strong>Email:</strong> poorpeopleofficial@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-effect border-t border-primary border-opacity-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 gradient-btn rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold text-primary">Poor People</span>
+                    </div>
+                    <p class="text-muted text-sm">Empowering your journey to financial freedom with intelligent tools and expert guidance.</p>
+                    <div class="flex space-x-3">
+                        <a href="https://www.pinterest.com/poorpeopleofficial/" target="_blank" class="social-icon pinterest-icon">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@PoorPeopleOfficial1" target="_blank" class="social-icon youtube-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+               
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-primary">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a onclick="showPage('calculator')" class="text-secondary hover:text-accent cursor-pointer">Financial Calculator</a></li>
+                        <li><a onclick="showPage('blog')" class="text-secondary hover:text-accent cursor-pointer">Blog & Resources</a></li>
+                        <li><a onclick="showPage('about')" class="text-secondary hover:text-accent cursor-pointer">About Us</a></li>
+                    </ul>
+                </div>
+               
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-primary">Contact</h3>
+                    <div class="flex items-center space-x-2 text-sm text-secondary">
+                        <i class="fas fa-envelope"></i>
+                        <span>poorpeopleofficial@gmail.com</span>
+                    </div>
+                </div>
+               
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-primary">Legal</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a onclick="showPage('privacy')" class="text-secondary hover:text-accent cursor-pointer">Privacy Policy</a></li>
+                        <li><a onclick="showPage('terms')" class="text-secondary hover:text-accent cursor-pointer">Terms & Conditions</a></li>
+                        <li><a onclick="showPage('disclaimer')" class="text-secondary hover:text-accent cursor-pointer">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="mt-8 pt-8 border-t border-primary border-opacity-20 text-center text-sm text-muted">
+                © 2025 Poor People. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global Variables
+        let currentPage = 'calculator';
+        let previousPage = null;
+        let isDarkMode = localStorage.getItem('theme') === 'dark';
+        let selectedTarget = 0;
+        let savingsChart = null;
+        let isDragging = false;
+        let dragOffset = { x: 0, y: 0 };
+        let animationFrame = null;
+       
+        // Enhanced quick target amounts with all requested values
+        const quickTargets = [
+            200000, 500000, 700000, 1000000, 20000000, 50000000, 70000000, 100000000,
+            300000000, 500000000, 700000000, 1000000000, 10000000000, 30000000000,
+            50000000000, 70000000000, 100000000000, 200000000000, 300000000000,
+            500000000000, 700000000000, 1000000000000, 10000000000000,
+            30000000000000, 50000000000000, 70000000000000, 100000000000000,
+            200000000000000, 300000000000000, 500000000000000, 700000000000000,
+            1000000000000000 // $1Q (Quadrillion)
+        ];
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        function initializeApp() {
+            generateQuickTargets();
+            setupEventListeners();
+            applyTheme();
+            showPage('calculator');
+            setupDragFunctionality();
+        }
+
+        function setupEventListeners() {
+            const incomeInput = document.getElementById('monthly-income');
+            const expensesInput = document.getElementById('monthly-expenses');
+            const customTargetInput = document.getElementById('custom-target');
+           
+            incomeInput?.addEventListener('input', calculateSavings);
+            expensesInput?.addEventListener('input', calculateSavings);
+            customTargetInput?.addEventListener('input', handleCustomTarget);
+
+            // Contact form
+            const contactForm = document.getElementById('contact-form');
+            contactForm?.addEventListener('submit', handleContactForm);
+        }
+
+        // Enhanced Cursor-Following Drag Functionality for Back Button
+        function setupDragFunctionality() {
+            const backBtn = document.getElementById('back-btn');
+            if (!backBtn) return;
+
+            // Mouse events
+            document.addEventListener('mousemove', handleDragMove);
+            document.addEventListener('mouseup', handleDragEnd);
+
+            // Touch events for mobile
+            document.addEventListener('touchmove', handleDragMove, { passive: false });
+            document.addEventListener('touchend', handleDragEnd);
+        }
+
+        function startDrag(event) {
+            event.preventDefault();
+            isDragging = true;
+           
+            const backBtn = document.getElementById('back-btn');
+            backBtn.classList.add('dragging');
+           
+            const clientX = event.type === 'mousedown' ? event.clientX : event.touches[0].clientX;
+            const clientY = event.type === 'mousedown' ? event.clientY : event.touches[0].clientY;
+           
+            const rect = backBtn.getBoundingClientRect();
+            dragOffset.x = clientX - rect.left;
+            dragOffset.y = clientY - rect.top;
+        }
+
+        function handleDragMove(event) {
+            if (!isDragging) return;
+           
+            event.preventDefault();
+           
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+            }
+           
+            animationFrame = requestAnimationFrame(() => {
+                const backBtn = document.getElementById('back-btn');
+               
+                const clientX = event.type === 'mousemove' ? event.clientX : event.touches[0].clientX;
+                const clientY = event.type === 'mousemove' ? event.clientY : event.touches[0].clientY;
+               
+                let newX = clientX - dragOffset.x;
+                let newY = clientY - dragOffset.y;
+               
+                // Constrain to viewport with smooth boundaries
+                const maxX = window.innerWidth - backBtn.offsetWidth;
+                const maxY = window.innerHeight - backBtn.offsetHeight;
+               
+                newX = Math.max(0, Math.min(newX, maxX));
+                newY = Math.max(0, Math.min(newY, maxY));
+               
+                backBtn.style.left = newX + 'px';
+                backBtn.style.top = newY + 'px';
+            });
+        }
+
+        function handleDragEnd(event) {
+            if (!isDragging) return;
+           
+            isDragging = false;
+            const backBtn = document.getElementById('back-btn');
+            backBtn.classList.remove('dragging');
+           
+            if (animationFrame) {
+                cancelAnimationFrame(animationFrame);
+            }
+           
+            // Save position to localStorage
+            const rect = backBtn.getBoundingClientRect();
+            localStorage.setItem('backBtnPosition', JSON.stringify({
+                x: rect.left,
+                y: rect.top
+            }));
+        }
+
+        function generateQuickTargets() {
+            const container = document.getElementById('quick-targets');
+            if (!container) return;
+
+            container.innerHTML = quickTargets.map(amount => `
+                <button onclick="selectTarget(${amount})"
+                        class="target-btn px-4 py-3 rounded-lg font-medium hover:scale-105 transition-all">
+                    ${formatCurrency(amount)}
+                </button>
+            `).join('');
+        }
+
+        function showPage(pageId) {
+            // Store previous page for back functionality
+            if (currentPage !== pageId) {
+                previousPage = currentPage;
+            }
+           
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+           
+            // Show selected page
+            const targetPage = document.getElementById(`${pageId}-page`);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                currentPage = pageId;
+               
+                // Show/hide back button
+                const backBtn = document.getElementById('back-btn');
+                if (pageId === 'calculator') {
+                    backBtn.classList.add('hidden');
+                    backBtn.style.display = 'none';
+                } else {
+                    backBtn.classList.remove('hidden');
+                    backBtn.style.display = 'flex';
+                   
+                    // Restore saved position
+                    const savedPosition = localStorage.getItem('backBtnPosition');
+                    if (savedPosition) {
+                        const position = JSON.parse(savedPosition);
+                        backBtn.style.left = position.x + 'px';
+                        backBtn.style.top = position.y + 'px';
+                    }
+                }
+               
+                // Add slide-in animation
+                targetPage.querySelector('.slide-in')?.classList.add('slide-in');
+            }
+
+            // Close mobile menu
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+                document.getElementById('mobile-menu-icon').className = 'fas fa-bars';
+            }
+        }
+
+        function goBack() {
+            if (previousPage) {
+                showPage(previousPage);
+            } else {
+                showPage('calculator');
+            }
+        }
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            applyTheme();
+        }
+
+        function applyTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+           
+            if (isDarkMode) {
+                body.classList.add('dark');
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                body.classList.remove('dark');
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+           
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                icon.className = 'fas fa-times';
+            } else {
+                mobileMenu.classList.add('hidden');
+                icon.className = 'fas fa-bars';
+            }
+        }
+
+        function calculateSavings() {
+            const income = parseFloat(document.getElementById('monthly-income')?.value) || 0;
+            const expenses = parseFloat(document.getElementById('monthly-expenses')?.value) || 0;
+            const savings = Math.max(0, income - expenses);
+           
+            const savingsDisplay = document.getElementById('monthly-savings');
+            if (savingsDisplay) {
+                savingsDisplay.textContent = '$' + formatNumberPrecise(savings);
+            }
+
+            // Update progress bar
+            const progressBar = document.getElementById('savings-progress');
+            if (progressBar && income > 0) {
+                const percentage = Math.min(100, (savings / income) * 100);
+                progressBar.style.width = `${percentage}%`;
+            }
+
+            // Auto-navigate to results if target is selected and all fields filled - ADDED
+            if (selectedTarget > 0 && income > 0 && expenses >= 0) {
+                calculateResults();
+            }
+        }
+
+        function selectTarget(amount) {
+            selectedTarget = amount;
+           
+            // Update custom input
+            const customInput = document.getElementById('custom-target');
+            if (customInput) {
+                customInput.value = formatNumberPrecise(amount);
+            }
+           
+            // Update button styles
+            document.querySelectorAll('.target-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+           
+            // Auto-navigate to results if income and expenses are filled - ADDED
+            const income = parseFloat(document.getElementById('monthly-income')?.value) || 0;
+            const expenses = parseFloat(document.getElementById('monthly-expenses')?.value) || 0;
+           
+            if (income > 0 && expenses >= 0) {
+                calculateResults();
+            }
+        }
+
+        function handleCustomTarget(event) {
+            const value = event.target.value.replace(/[^\d.]/g, '');
+            event.target.value = value;
+           
+            const amount = parseFloat(value) || 0;
+            selectedTarget = amount;
+           
+            // Remove active class from quick targets
+            document.querySelectorAll('.target-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+           
+            // Auto-navigate to results if amount is valid and other fields are filled - ADDED
+            if (amount > 0) {
+                const income = parseFloat(document.getElementById('monthly-income')?.value) || 0;
+                const expenses = parseFloat(document.getElementById('monthly-expenses')?.value) || 0;
+               
+                if (income > 0 && expenses >= 0) {
+                    calculateResults();
+                }
+            }
+        }
+
+        function calculateResults() {
+            const income = parseFloat(document.getElementById('monthly-income')?.value) || 0;
+            const expenses = parseFloat(document.getElementById('monthly-expenses')?.value) || 0;
+            const savings = Math.max(0, income - expenses);
+           
+            if (selectedTarget <= 0 || savings <= 0) {
+                document.getElementById('results-section')?.classList.add('hidden');
+                return;
+            }
+           
+            // Enhanced calculation with precision
+            const exactMonthsToGoal = selectedTarget / savings;
+            const monthsToGoal = Math.ceil(exactMonthsToGoal);
+            const years = Math.floor(monthsToGoal / 12);
+            const months = monthsToGoal % 12;
+           
+            // Update result displays with precise formatting
+            document.getElementById('result-target').textContent = formatCurrency(selectedTarget);
+            document.getElementById('result-time').textContent =
+                years > 0 ? `${years}y ${months}m` : `${monthsToGoal} months`;
+            document.getElementById('result-savings').textContent = '$' + formatNumberPrecise(savings);
+           
+            // Show results section
+            document.getElementById('results-section')?.classList.remove('hidden');
+           
+            // Auto-scroll to results section - ADDED
+            const resultsSection = document.getElementById('results-section');
+            if (resultsSection) {
+                resultsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+           
+            // Generate chart with enhanced accuracy
+            generateChart(savings, selectedTarget, exactMonthsToGoal);
+        }
+
+        function generateChart(monthlySavings, targetAmount, totalMonths) {
+            const ctx = document.getElementById('savingsChart');
+            if (!ctx) return;
+           
+            // Destroy existing chart
+            if (savingsChart) {
+                savingsChart.destroy();
+            }
+           
+            // Generate data points with higher precision
+            const dataPoints = [];
+            const labels = [];
+            const maxPoints = 60;
+            const stepSize = Math.max(1, totalMonths / maxPoints);
+           
+            for (let month = 0; month <= totalMonths; month += stepSize) {
+                const currentAmount = month * monthlySavings;
+                dataPoints.push(Math.min(currentAmount, targetAmount));
+               
+                if (month === 0) {
+                    labels.push('Start');
+                } else if (month >= 12) {
+                    const years = Math.floor(month / 12);
+                    const remainingMonths = Math.round(month % 12);
+                    labels.push(remainingMonths > 0 ? `${years}y ${remainingMonths}m` : `${years}y`);
+                } else {
+                    labels.push(`${Math.round(month)}m`);
+                }
+            }
+           
+            // Ensure final point is included
+            if (dataPoints[dataPoints.length - 1] < targetAmount) {
+                dataPoints.push(targetAmount);
+                const finalYears = Math.floor(totalMonths / 12);
+                const finalMonths = Math.round(totalMonths % 12);
+                labels.push(finalYears > 0 ? `${finalYears}y ${finalMonths}m` : `${Math.round(totalMonths)}m`);
+            }
+           
+            // Enhanced color settings for better dark mode visibility - FIXED
+            const primaryTextColor = isDarkMode ? '#F5DEB3' : '#5D4E37';
+            const secondaryTextColor = isDarkMode ? '#DEB887' : '#8B4513';
+            const gridColor = isDarkMode ? 'rgba(245, 222, 179, 0.25)' : 'rgba(139, 69, 19, 0.1)';
+           
+            savingsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Savings Growth',
+                        data: dataPoints,
+                        borderColor: '#8B4513',
+                        backgroundColor: 'rgba(139, 69, 19, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#CD853F',
+                        pointBorderColor: '#CD853F',
+                        pointRadius: 4
+                    }, {
+                        label: 'Target Amount',
+                        data: new Array(labels.length).fill(targetAmount),
+                        borderColor: '#CD853F',
+                        backgroundColor: 'transparent',
+                        borderDash: [5, 5],
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: primaryTextColor,
+                                font: {
+                                    weight: 'bold',
+                                    size: 14
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: secondaryTextColor,
+                                font: {
+                                    weight: '600'
+                                }
+                            },
+                            grid: {
+                                color: gridColor
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: secondaryTextColor,
+                                font: {
+                                    weight: '600'
+                                },
+                                callback: function(value) {
+                                    return formatCurrency(value);
+                                }
+                            },
+                            grid: {
+                                color: gridColor
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function handleContactForm(event) {
+            event.preventDefault();
+           
+            // Show success message
+            const form = event.target;
+            const originalContent = form.innerHTML;
+           
+            form.innerHTML = `
+                <div class="text-center py-12">
+                    <div class="w-16 h-16 gradient-btn rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow">
+                        <i class="fas fa-check text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Message Sent!</h3>
+                    <p class="text-secondary">Thank you for your message! We'll get back to you soon.</p>
+                </div>
+            `;
+           
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                form.innerHTML = originalContent;
+                setupEventListeners();
+            }, 3000);
+        }
+
+        // Enhanced utility functions with improved precision
+        function formatNumberPrecise(num) {
+            return new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 2
+            }).format(num);
+        }
+
+        function formatCurrency(amount) {
+            if (amount >= 1000000000000000) {
+                return `$${(amount / 1000000000000000).toFixed(amount % 1000000000000000 === 0 ? 0 : 1)}Q`;
+            } else if (amount >= 1000000000000) {
+                return `$${(amount / 1000000000000).toFixed(amount % 1000000000000 === 0 ? 0 : 1)}T`;
+            } else if (amount >= 1000000000) {
+                return `$${(amount / 1000000000).toFixed(amount % 1000000000 === 0 ? 0 : 1)}B`;
+            } else if (amount >= 1000000) {
+                return `$${(amount / 1000000).toFixed(amount % 1000000 === 0 ? 0 : 1)}M`;
+            } else if (amount >= 1000) {
+                return `$${(amount / 1000).toFixed(amount % 1000 === 0 ? 0 : 0)}K`;
+            } else {
+                return `$${formatNumberPrecise(amount)}`;
+            }
+        }
+    </script>
+</body>
+</html>
