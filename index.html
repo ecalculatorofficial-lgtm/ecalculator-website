@@ -189,6 +189,12 @@
             width: 100%;
         }
 
+        .currency-select {
+            background: var(--input-bg);
+            color: var(--input-text);
+            cursor: pointer;
+        }
+
         .blog-card {
             transition: all 0.3s ease;
         }
@@ -642,21 +648,31 @@
                 <div class="max-w-4xl mx-auto mb-12">
                     <div class="glass-effect rounded-2xl p-8 slide-in">
                         <h2 class="text-3xl font-bold text-primary mb-8 text-center">Your Financial Information</h2>
+                        <div class="mb-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+                            <label for="currency-select" class="text-primary font-medium">Currency</label>
+                            <select id="currency-select" class="currency-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent font-semibold min-w-[200px]">
+                                <option value="USD">USD — US Dollar ($)</option>
+                                <option value="GBP">GBP — British Pound (£)</option>
+                                <option value="EUR">EUR — Euro (€)</option>
+                                <option value="INR">INR — Indian Rupee (₹)</option>
+                                <option value="PKR">PKR — Pakistani Rupee (₨)</option>
+                            </select>
+                        </div>
                         <div class="grid md:grid-cols-2 gap-8">
                             <div class="space-y-4">
                                 <label class="block text-primary font-medium">Monthly Income</label>
                                 <div class="relative">
-                                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
+                                    <span class="currency-prefix absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
                                     <input type="number" id="monthly-income" placeholder="Enter your monthly income"
-                                           class="w-full pl-8 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                                           class="w-full pl-10 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <label class="block text-primary font-medium">Monthly Expenses</label>
                                 <div class="relative">
-                                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
+                                    <span class="currency-prefix absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
                                     <input type="number" id="monthly-expenses" placeholder="Enter your monthly expenses"
-                                           class="w-full pl-8 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                                           class="w-full pl-10 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
                                 </div>
                             </div>
                         </div>
@@ -678,9 +694,9 @@
                         <div class="mb-8">
                             <label class="block text-primary font-medium mb-4">Custom Target Amount</label>
                             <div class="relative max-w-md mx-auto">
-                                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
+                                <span class="currency-prefix absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
                                 <input type="text" id="custom-target" placeholder="Enter custom amount"
-                                       class="w-full pl-8 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                                       class="w-full pl-10 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
                             </div>
                         </div>
 
@@ -1280,8 +1296,19 @@
         let isDragging = false;
         let dragOffset = { x: 0, y: 0 };
         let animationFrame = null;
+
+        const currencies = {
+            USD: { symbol: '$', code: 'USD', rate: 1, locale: 'en-US' },
+            GBP: { symbol: '£', code: 'GBP', rate: 0.79, locale: 'en-GB' },
+            EUR: { symbol: '€', code: 'EUR', rate: 0.92, locale: 'en-IE' },
+            INR: { symbol: '₹', code: 'INR', rate: 83.5, locale: 'en-IN' },
+            PKR: { symbol: '₨', code: 'PKR', rate: 278, locale: 'en-PK' }
+        };
+
+        let currentCurrency = localStorage.getItem('currency') || 'USD';
+        if (!currencies[currentCurrency]) currentCurrency = 'USD';
        
-        // Enhanced quick target amounts with all requested values
+        // Quick target amounts (USD base values)
         const quickTargets = [
             200000, 500000, 700000, 1000000, 20000000, 50000000, 70000000, 100000000,
             300000000, 500000000, 700000000, 1000000000, 10000000000, 30000000000,
@@ -1298,6 +1325,12 @@
         });
 
         function initializeApp() {
+            const currencySelect = document.getElementById('currency-select');
+            if (currencySelect) {
+                currencySelect.value = currentCurrency;
+            }
+            updateCurrencySymbols();
+            updateDefaultMoneyDisplays();
             generateQuickTargets();
             setupEventListeners();
             applyTheme();
@@ -1309,14 +1342,83 @@
             const incomeInput = document.getElementById('monthly-income');
             const expensesInput = document.getElementById('monthly-expenses');
             const customTargetInput = document.getElementById('custom-target');
+            const currencySelect = document.getElementById('currency-select');
            
             incomeInput?.addEventListener('input', calculateSavings);
             expensesInput?.addEventListener('input', calculateSavings);
             customTargetInput?.addEventListener('input', handleCustomTarget);
+            currencySelect?.addEventListener('change', handleCurrencyChange);
 
             // Contact form
             const contactForm = document.getElementById('contact-form');
             contactForm?.addEventListener('submit', handleContactForm);
+        }
+
+        function getCurrency() {
+            return currencies[currentCurrency];
+        }
+
+        function convertFromUsd(usdAmount) {
+            return usdAmount * getCurrency().rate;
+        }
+
+        function updateDefaultMoneyDisplays() {
+            const zero = formatMoney(0);
+            const monthlySavings = document.getElementById('monthly-savings');
+            const resultTarget = document.getElementById('result-target');
+            const resultSavings = document.getElementById('result-savings');
+            if (monthlySavings && monthlySavings.textContent.match(/^[^\d]/)) {
+                monthlySavings.textContent = zero;
+            }
+            if (resultTarget && resultTarget.textContent.match(/^[^\d]/)) {
+                resultTarget.textContent = zero;
+            }
+            if (resultSavings && resultSavings.textContent.match(/^[^\d]/)) {
+                resultSavings.textContent = zero;
+            }
+        }
+
+        function handleCurrencyChange(event) {
+            const newCurrency = event.target.value;
+            if (!currencies[newCurrency] || newCurrency === currentCurrency) return;
+
+            const oldRate = getCurrency().rate;
+            const newRate = currencies[newCurrency].rate;
+            const factor = newRate / oldRate;
+
+            const incomeInput = document.getElementById('monthly-income');
+            const expensesInput = document.getElementById('monthly-expenses');
+            const customInput = document.getElementById('custom-target');
+
+            const income = parseFloat(incomeInput?.value) || 0;
+            const expenses = parseFloat(expensesInput?.value) || 0;
+
+            if (income > 0 && incomeInput) {
+                incomeInput.value = roundForInput(income * factor);
+            }
+            if (expenses > 0 && expensesInput) {
+                expensesInput.value = roundForInput(expenses * factor);
+            }
+            if (selectedTarget > 0) {
+                selectedTarget = selectedTarget * factor;
+                if (customInput) {
+                    customInput.value = formatNumberPrecise(selectedTarget);
+                }
+            }
+
+            currentCurrency = newCurrency;
+            localStorage.setItem('currency', currentCurrency);
+            updateCurrencySymbols();
+            updateDefaultMoneyDisplays();
+            generateQuickTargets();
+            calculateSavings();
+        }
+
+        function updateCurrencySymbols() {
+            const symbol = getCurrency().symbol;
+            document.querySelectorAll('.currency-prefix').forEach(el => {
+                el.textContent = symbol;
+            });
         }
 
         // Enhanced Cursor-Following Drag Functionality for Back Button
@@ -1401,12 +1503,21 @@
             const container = document.getElementById('quick-targets');
             if (!container) return;
 
-            container.innerHTML = quickTargets.map(amount => `
-                <button onclick="selectTarget(${amount})"
+            container.innerHTML = quickTargets.map(usdAmount => {
+                const amount = convertFromUsd(usdAmount);
+                return `
+                <button data-target="${amount}"
                         class="target-btn px-4 py-3 rounded-lg font-medium hover:scale-105 transition-all">
                     ${formatCurrency(amount)}
                 </button>
-            `).join('');
+            `;
+            }).join('');
+
+            container.querySelectorAll('.target-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    selectTarget(parseFloat(btn.dataset.target), e);
+                });
+            });
         }
 
         function showPage(pageId) {
@@ -1503,7 +1614,7 @@
            
             const savingsDisplay = document.getElementById('monthly-savings');
             if (savingsDisplay) {
-                savingsDisplay.textContent = '$' + formatNumberPrecise(savings);
+                savingsDisplay.textContent = formatMoney(savings);
             }
 
             // Update progress bar
@@ -1519,7 +1630,7 @@
             }
         }
 
-        function selectTarget(amount) {
+        function selectTarget(amount, clickEvent) {
             selectedTarget = amount;
            
             // Update custom input
@@ -1532,7 +1643,10 @@
             document.querySelectorAll('.target-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            const activeBtn = clickEvent?.currentTarget || clickEvent?.target;
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
            
             // Auto-navigate to results if income and expenses are filled - ADDED
             const income = parseFloat(document.getElementById('monthly-income')?.value) || 0;
@@ -1586,7 +1700,7 @@
             document.getElementById('result-target').textContent = formatCurrency(selectedTarget);
             document.getElementById('result-time').textContent =
                 years > 0 ? `${years}y ${months}m` : `${monthsToGoal} months`;
-            document.getElementById('result-savings').textContent = '$' + formatNumberPrecise(savings);
+            document.getElementById('result-savings').textContent = formatMoney(savings);
            
             // Show results section
             document.getElementById('results-section')?.classList.remove('hidden');
@@ -1740,26 +1854,36 @@
         }
 
         // Enhanced utility functions with improved precision
+        function roundForInput(num) {
+            const decimals = getCurrency().rate >= 50 ? 0 : 2;
+            return Number(num.toFixed(decimals));
+        }
+
         function formatNumberPrecise(num) {
-            return new Intl.NumberFormat('en-US', {
+            return new Intl.NumberFormat(getCurrency().locale, {
                 minimumFractionDigits: 0,
                 maximumFractionDigits: 2
             }).format(num);
         }
 
+        function formatMoney(amount) {
+            return getCurrency().symbol + formatNumberPrecise(amount);
+        }
+
         function formatCurrency(amount) {
+            const symbol = getCurrency().symbol;
             if (amount >= 1000000000000000) {
-                return `$${(amount / 1000000000000000).toFixed(amount % 1000000000000000 === 0 ? 0 : 1)}Q`;
+                return `${symbol}${(amount / 1000000000000000).toFixed(amount % 1000000000000000 === 0 ? 0 : 1)}Q`;
             } else if (amount >= 1000000000000) {
-                return `$${(amount / 1000000000000).toFixed(amount % 1000000000000 === 0 ? 0 : 1)}T`;
+                return `${symbol}${(amount / 1000000000000).toFixed(amount % 1000000000000 === 0 ? 0 : 1)}T`;
             } else if (amount >= 1000000000) {
-                return `$${(amount / 1000000000).toFixed(amount % 1000000000 === 0 ? 0 : 1)}B`;
+                return `${symbol}${(amount / 1000000000).toFixed(amount % 1000000000 === 0 ? 0 : 1)}B`;
             } else if (amount >= 1000000) {
-                return `$${(amount / 1000000).toFixed(amount % 1000000 === 0 ? 0 : 1)}M`;
+                return `${symbol}${(amount / 1000000).toFixed(amount % 1000000 === 0 ? 0 : 1)}M`;
             } else if (amount >= 1000) {
-                return `$${(amount / 1000).toFixed(amount % 1000 === 0 ? 0 : 0)}K`;
+                return `${symbol}${(amount / 1000).toFixed(amount % 1000 === 0 ? 0 : 0)}K`;
             } else {
-                return `$${formatNumberPrecise(amount)}`;
+                return formatMoney(amount);
             }
         }
     </script>
