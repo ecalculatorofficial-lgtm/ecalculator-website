@@ -4,6 +4,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3640736450417804" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/Black White Vintage Grunge Rough Square Creative Studio Call Logo (1).png" type="image/png">
     <title>Poor People - Financial Goal Calculator & AI-Powered Wealth Planning</title>
     <meta name="description" content="Calculate your path to financial freedom with Poor People's AI-powered financial calculator. Discover exactly how long it will take to reach your wealth goals with expert financial planning tools and resources.">
     <meta name="keywords" content="financial calculator, wealth building, financial planning, money goals, savings calculator, investment planning, financial freedom, budgeting tools, personal finance, AI financial planning">
@@ -442,6 +443,23 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
+        .logo-image {
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .logo-image-nav {
+            height: 3rem;
+            width: auto;
+            max-width: 10rem;
+        }
+
+        .logo-image-footer {
+            height: 2.5rem;
+            width: auto;
+            max-width: 8rem;
+        }
+
         /* Enhanced Dropdown Menu */
         .dropdown-menu {
             background: rgba(245, 245, 220, 0.9);
@@ -561,9 +579,9 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="logo-container flex items-center space-x-3 cursor-pointer" onclick="showPage('calculator')">
-                    <div class="w-12 h-12 gradient-btn rounded-xl flex items-center justify-center">
-                        <i class="fas fa-chart-line text-white text-lg"></i>
-                    </div>
+                    <img src="assets/Black White Vintage Grunge Rough Square Creative Studio Call Logo (1).png"
+                         alt="e-calculator logo"
+                         class="logo-image logo-image-nav">
                     <div>
                         <h1 class="text-xl font-bold logo-text">Poor People</h1>
                         <p class="text-xs logo-subtitle">Financial Freedom Calculator</p>
@@ -1088,10 +1106,13 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="space-y-4">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 gradient-btn rounded-lg flex items-center justify-center">
-                            <i class="fas fa-chart-line text-white"></i>
+                        <img src="assets/Black White Vintage Grunge Rough Square Creative Studio Call Logo (1).png"
+                             alt="e-calculator logo"
+                             class="logo-image logo-image-footer">
+                        <div>
+                            <span class="text-xl font-bold text-primary block leading-tight">Poor People</span>
+                            <span class="text-xs text-muted block">Financial Freedom Calculator</span>
                         </div>
-                        <span class="text-xl font-bold text-primary">Poor People</span>
                     </div>
                     <p class="text-muted text-sm">Empowering your journey to financial freedom with intelligent tools and expert guidance.</p>
                     <div class="flex space-x-3">
