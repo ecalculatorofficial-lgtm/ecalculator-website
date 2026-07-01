@@ -518,6 +518,10 @@
             background: rgba(245, 245, 220, 0.6) !important;
         }
 
+        .dropdown-menu-wide {
+            min-width: 15rem;
+        }
+
         /* Enhanced Chart Text Visibility for Dark Mode - FIXED */
         .dark .chart-container h3 {
             color: #F5DEB3 !important;
@@ -630,19 +634,19 @@
                 </div>
                
                 <div class="hidden md:flex items-center space-x-6">
-                    <a class="nav-item cursor-pointer" onclick="showPage('calculator')">Calculator</a>
+                    <a class="nav-item cursor-pointer" onclick="showPage('calculator')">Home</a>
                     <div class="relative group">
                         <button class="nav-item flex items-center">
                             Calculators <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-wide absolute top-full left-0 mt-2 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                            <a onclick="showPage('calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Financial Freedom</a>
+                            <a onclick="showPage('calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Financial Freedom Calculator</a>
                             <a onclick="showPage('tip-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Tip Calculator</a>
-                            <a onclick="showPage('max-heart-rate-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Max Heart Rate</a>
-                            <a onclick="showPage('income-tax-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Income Tax</a>
-                            <a onclick="showPage('gpa-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Cumulative GPA</a>
-                            <a onclick="showPage('mortgage-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Mortgage</a>
-                            <a onclick="showPage('era-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">ERA (Baseball)</a>
+                            <a onclick="showPage('max-heart-rate-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Max Heart Rate Calculator</a>
+                            <a onclick="showPage('income-tax-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Federal Income Tax Calculator</a>
+                            <a onclick="showPage('gpa-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Cumulative GPA Calculator</a>
+                            <a onclick="showPage('mortgage-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Mortgage Calculator</a>
+                            <a onclick="showPage('era-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">ERA Calculator</a>
                         </div>
                     </div>
                     <a class="nav-item cursor-pointer" onclick="showPage('blog')">Blog</a>
@@ -673,15 +677,15 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden mt-4 hidden">
                 <div class="rounded-lg p-4 space-y-2">
-                    <a onclick="showPage('calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer">Financial Freedom Calculator</a>
+                    <a onclick="showPage('calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer">Home</a>
                     <div class="border-t border-white border-opacity-20 pt-2">
                         <p class="text-xs text-muted uppercase tracking-wide mb-1">Calculators</p>
                         <a onclick="showPage('tip-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Tip Calculator</a>
-                        <a onclick="showPage('max-heart-rate-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Max Heart Rate</a>
-                        <a onclick="showPage('income-tax-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Income Tax</a>
-                        <a onclick="showPage('gpa-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Cumulative GPA</a>
-                        <a onclick="showPage('mortgage-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Mortgage</a>
-                        <a onclick="showPage('era-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">ERA (Baseball)</a>
+                        <a onclick="showPage('max-heart-rate-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Max Heart Rate Calculator</a>
+                        <a onclick="showPage('income-tax-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Federal Income Tax Calculator</a>
+                        <a onclick="showPage('gpa-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Cumulative GPA Calculator</a>
+                        <a onclick="showPage('mortgage-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Mortgage Calculator</a>
+                        <a onclick="showPage('era-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">ERA Calculator</a>
                     </div>
                     <a onclick="showPage('blog'); toggleMobileMenu()" class="block py-2 cursor-pointer">Blog</a>
                     <a onclick="showPage('about'); toggleMobileMenu()" class="block py-2 cursor-pointer">About</a>
@@ -719,13 +723,7 @@
                         <h2 class="text-3xl font-bold text-primary mb-8 text-center">Your Financial Information</h2>
                         <div class="mb-8 flex flex-col sm:flex-row items-center justify-center gap-3">
                             <label for="currency-select" class="text-primary font-medium">Currency</label>
-                            <select id="currency-select" class="currency-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent font-semibold min-w-[200px]">
-                                <option value="USD">USD — US Dollar ($)</option>
-                                <option value="GBP">GBP — British Pound (£)</option>
-                                <option value="EUR">EUR — Euro (€)</option>
-                                <option value="INR">INR — Indian Rupee (₹)</option>
-                                <option value="PKR">PKR — Pakistani Rupee (₨)</option>
-                            </select>
+                            <select id="currency-select" class="currency-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent font-semibold min-w-[200px]"></select>
                         </div>
                         <div class="grid md:grid-cols-2 gap-8">
                             <div class="space-y-4">
@@ -908,8 +906,8 @@
         <div id="income-tax-calculator-page" class="page hidden" data-last-updated="2026-06-30">
             <div class="container mx-auto px-6 py-12">
                 <div class="text-center mb-12 slide-in">
-                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Income Tax <span class="text-accent">Calculator</span></h1>
-                    <p class="text-lg text-secondary max-w-3xl mx-auto">Estimate income tax using progressive brackets for multiple countries. Enter annual income in the local currency of your selected region.</p>
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Federal Income Tax <span class="text-accent">Calculator</span></h1>
+                    <p class="text-lg text-secondary max-w-3xl mx-auto">Estimate federal and national income tax using progressive brackets for countries worldwide. Enter annual income in the local currency of your selected region.</p>
                     <p class="page-last-updated mt-4"></p>
                 </div>
                 <div class="max-w-2xl mx-auto glass-effect rounded-2xl p-8 slide-in">
@@ -923,8 +921,19 @@
                                 <option value="australia">Australia</option>
                                 <option value="india">India</option>
                                 <option value="germany">Germany</option>
+                                <option value="france">France</option>
+                                <option value="japan">Japan</option>
+                                <option value="brazil">Brazil</option>
+                                <option value="mexico">Mexico</option>
+                                <option value="south_africa">South Africa</option>
+                                <option value="singapore">Singapore</option>
+                                <option value="uae">United Arab Emirates</option>
+                                <option value="saudi">Saudi Arabia</option>
+                                <option value="bangladesh">Bangladesh</option>
+                                <option value="nigeria">Nigeria</option>
+                                <option value="philippines">Philippines</option>
                                 <option value="pakistan">Pakistan</option>
-                                <option value="custom">Custom Flat Rate (%)</option>
+                                <option value="custom">Other Country — Custom Flat Rate (%)</option>
                             </select>
                         </div>
                         <div id="tax-filing-wrap">
@@ -1637,11 +1646,32 @@
         let animationFrame = null;
 
         const currencies = {
-            USD: { symbol: '$', code: 'USD', rate: 1, locale: 'en-US' },
-            GBP: { symbol: '£', code: 'GBP', rate: 0.79, locale: 'en-GB' },
-            EUR: { symbol: '€', code: 'EUR', rate: 0.92, locale: 'en-IE' },
-            INR: { symbol: '₹', code: 'INR', rate: 83.5, locale: 'en-IN' },
-            PKR: { symbol: '₨', code: 'PKR', rate: 278, locale: 'en-PK' }
+            USD: { symbol: '$', code: 'USD', rate: 1, locale: 'en-US', name: 'US Dollar' },
+            EUR: { symbol: '€', code: 'EUR', rate: 0.92, locale: 'de-DE', name: 'Euro' },
+            GBP: { symbol: '£', code: 'GBP', rate: 0.79, locale: 'en-GB', name: 'British Pound' },
+            CAD: { symbol: 'C$', code: 'CAD', rate: 1.36, locale: 'en-CA', name: 'Canadian Dollar' },
+            AUD: { symbol: 'A$', code: 'AUD', rate: 1.52, locale: 'en-AU', name: 'Australian Dollar' },
+            JPY: { symbol: '¥', code: 'JPY', rate: 157, locale: 'ja-JP', name: 'Japanese Yen' },
+            CNY: { symbol: '¥', code: 'CNY', rate: 7.25, locale: 'zh-CN', name: 'Chinese Yuan' },
+            INR: { symbol: '₹', code: 'INR', rate: 83.5, locale: 'en-IN', name: 'Indian Rupee' },
+            PKR: { symbol: '₨', code: 'PKR', rate: 278, locale: 'en-PK', name: 'Pakistani Rupee' },
+            BRL: { symbol: 'R$', code: 'BRL', rate: 5.0, locale: 'pt-BR', name: 'Brazilian Real' },
+            MXN: { symbol: 'MX$', code: 'MXN', rate: 17.2, locale: 'es-MX', name: 'Mexican Peso' },
+            ZAR: { symbol: 'R', code: 'ZAR', rate: 18.5, locale: 'en-ZA', name: 'South African Rand' },
+            AED: { symbol: 'د.إ', code: 'AED', rate: 3.67, locale: 'ar-AE', name: 'UAE Dirham' },
+            SAR: { symbol: '﷼', code: 'SAR', rate: 3.75, locale: 'ar-SA', name: 'Saudi Riyal' },
+            SGD: { symbol: 'S$', code: 'SGD', rate: 1.34, locale: 'en-SG', name: 'Singapore Dollar' },
+            KRW: { symbol: '₩', code: 'KRW', rate: 1350, locale: 'ko-KR', name: 'South Korean Won' },
+            CHF: { symbol: 'CHF', code: 'CHF', rate: 0.88, locale: 'de-CH', name: 'Swiss Franc' },
+            NGN: { symbol: '₦', code: 'NGN', rate: 1550, locale: 'en-NG', name: 'Nigerian Naira' },
+            BDT: { symbol: '৳', code: 'BDT', rate: 110, locale: 'bn-BD', name: 'Bangladeshi Taka' },
+            PHP: { symbol: '₱', code: 'PHP', rate: 56, locale: 'en-PH', name: 'Philippine Peso' },
+            NZD: { symbol: 'NZ$', code: 'NZD', rate: 1.64, locale: 'en-NZ', name: 'New Zealand Dollar' },
+            HKD: { symbol: 'HK$', code: 'HKD', rate: 7.82, locale: 'zh-HK', name: 'Hong Kong Dollar' },
+            TRY: { symbol: '₺', code: 'TRY', rate: 32, locale: 'tr-TR', name: 'Turkish Lira' },
+            IDR: { symbol: 'Rp', code: 'IDR', rate: 15800, locale: 'id-ID', name: 'Indonesian Rupiah' },
+            MYR: { symbol: 'RM', code: 'MYR', rate: 4.7, locale: 'ms-MY', name: 'Malaysian Ringgit' },
+            THB: { symbol: '฿', code: 'THB', rate: 36, locale: 'th-TH', name: 'Thai Baht' }
         };
 
         let currentCurrency = localStorage.getItem('currency') || 'USD';
@@ -1664,10 +1694,7 @@
         });
 
         function initializeApp() {
-            const currencySelect = document.getElementById('currency-select');
-            if (currencySelect) {
-                currencySelect.value = currentCurrency;
-            }
+            populateMainCurrencySelect();
             updateCurrencySymbols();
             updateDefaultMoneyDisplays();
             generateQuickTargets();
@@ -1750,6 +1777,7 @@
             currentCurrency = newCurrency;
             localStorage.setItem('currency', currentCurrency);
             updateCurrencySymbols();
+            syncCalcCurrencySelects();
             updateDefaultMoneyDisplays();
             generateQuickTargets();
             calculateSavings();
@@ -2247,11 +2275,32 @@
         }
 
         // --- Additional Calculators ---
+        function populateMainCurrencySelect() {
+            const select = document.getElementById('currency-select');
+            if (!select) return;
+            select.innerHTML = Object.entries(currencies).map(([code, c]) =>
+                `<option value="${code}">${code} — ${c.name} (${c.symbol})</option>`
+            ).join('');
+            select.value = currentCurrency;
+        }
+
+        function syncCalcCurrencySelects() {
+            ['tip-currency', 'mortgage-currency'].forEach(id => {
+                const select = document.getElementById(id);
+                if (!select) return;
+                select.value = currentCurrency;
+                const prefixClass = id === 'tip-currency' ? 'tip-currency-prefix' : 'mortgage-currency-prefix';
+                updateCalcCurrencyPrefix(prefixClass, getCurrency().symbol);
+            });
+            calculateTip();
+            calculateMortgage();
+        }
+
         function populateCurrencySelect(selectId, prefixClass) {
             const select = document.getElementById(selectId);
             if (!select) return;
             select.innerHTML = Object.entries(currencies).map(([code, c]) =>
-                `<option value="${code}">${code} — ${c.symbol}</option>`
+                `<option value="${code}">${code} — ${c.name} (${c.symbol})</option>`
             ).join('');
             select.value = currentCurrency;
             updateCalcCurrencyPrefix(prefixClass, getCurrency().symbol);
@@ -2279,10 +2328,16 @@
         function formatTaxMoney(amount, country) {
             const localeMap = {
                 us: 'en-US', uk: 'en-GB', canada: 'en-CA', australia: 'en-AU',
-                india: 'en-IN', germany: 'de-DE', pakistan: 'en-PK', custom: 'en-US'
+                india: 'en-IN', germany: 'de-DE', france: 'fr-FR', japan: 'ja-JP',
+                brazil: 'pt-BR', mexico: 'es-MX', south_africa: 'en-ZA', singapore: 'en-SG',
+                uae: 'ar-AE', saudi: 'ar-SA', bangladesh: 'bn-BD', nigeria: 'en-NG',
+                philippines: 'en-PH', pakistan: 'en-PK', custom: 'en-US'
             };
             const symbolMap = {
-                us: '$', uk: '£', canada: 'C$', australia: 'A$', india: '₹', germany: '€', pakistan: '₨', custom: ''
+                us: '$', uk: '£', canada: 'C$', australia: 'A$', india: '₹', germany: '€',
+                france: '€', japan: '¥', brazil: 'R$', mexico: 'MX$', south_africa: 'R',
+                singapore: 'S$', uae: 'د.إ', saudi: '﷼', bangladesh: '৳', nigeria: '₦',
+                philippines: '₱', pakistan: '₨', custom: ''
             };
             const locale = localeMap[country] || 'en-US';
             const sym = symbolMap[country] || '';
@@ -2386,7 +2441,10 @@
             const customWrap = document.getElementById('tax-custom-wrap');
             const labels = {
                 us: '(USD)', uk: '(GBP)', canada: '(CAD)', australia: '(AUD)',
-                india: '(INR)', germany: '(EUR)', pakistan: '(PKR)', custom: '(any currency)'
+                india: '(INR)', germany: '(EUR)', france: '(EUR)', japan: '(JPY)',
+                brazil: '(BRL)', mexico: '(MXN)', south_africa: '(ZAR)', singapore: '(SGD)',
+                uae: '(AED)', saudi: '(SAR)', bangladesh: '(BDT)', nigeria: '(NGN)',
+                philippines: '(PHP)', pakistan: '(PKR)', custom: '(any currency)'
             };
             document.getElementById('tax-currency-label').textContent = labels[country] || '';
             filingWrap?.classList.toggle('hidden', country !== 'us');
@@ -2442,6 +2500,27 @@
             } else if (country === 'germany') {
                 const taxable = Math.max(0, income - 11604);
                 tax = computeProgressiveTax(taxable, [[17005,0.14],[66760,0.24],[277826,0.42],[Infinity,0.45]]);
+            } else if (country === 'france') {
+                tax = computeProgressiveTax(income, [[11294,0],[28797,0.11],[82341,0.30],[177106,0.41],[Infinity,0.45]]);
+            } else if (country === 'japan') {
+                const taxable = Math.max(0, income - 480000);
+                tax = computeProgressiveTax(taxable, [[1950000,0.05],[3300000,0.10],[6950000,0.20],[9000000,0.23],[18000000,0.33],[Infinity,0.40]]);
+            } else if (country === 'brazil') {
+                tax = computeProgressiveTax(income, [[22847.76,0],[33919.80,0.075],[45012.60,0.15],[55976.16,0.225],[Infinity,0.275]]);
+            } else if (country === 'mexico') {
+                tax = computeProgressiveTax(income, [[8952.49,0.0192],[75984.55,0.0640],[131736.00,0.1088],[160392.00,0.1600],[323532.00,0.1792],[510451.50,0.2136],[974535.03,0.2352],[1299380.04,0.3000],[3898140.12,0.3200],[Infinity,0.3500]]);
+            } else if (country === 'south_africa') {
+                tax = computeProgressiveTax(income, [[237100,0.18],[370500,0.26],[512800,0.31],[673000,0.36],[857900,0.39],[1817000,0.41],[Infinity,0.45]]);
+            } else if (country === 'singapore') {
+                tax = computeProgressiveTax(income, [[20000,0],[30000,0.02],[40000,0.035],[80000,0.07],[120000,0.115],[160000,0.15],[200000,0.18],[240000,0.19],[280000,0.195],[320000,0.20],[500000,0.22],[Infinity,0.24]]);
+            } else if (country === 'uae' || country === 'saudi') {
+                tax = 0;
+            } else if (country === 'bangladesh') {
+                tax = computeProgressiveTax(income, [[350000,0],[450000,0.05],[750000,0.10],[1150000,0.15],[1650000,0.20],[Infinity,0.25]]);
+            } else if (country === 'nigeria') {
+                tax = computeProgressiveTax(income, [[300000,0.07],[600000,0.11],[1100000,0.15],[1600000,0.19],[3200000,0.21],[Infinity,0.24]]);
+            } else if (country === 'philippines') {
+                tax = computeProgressiveTax(income, [[250000,0],[400000,0.15],[800000,0.20],[2000000,0.25],[8000000,0.30],[Infinity,0.35]]);
             } else if (country === 'pakistan') {
                 tax = computeProgressiveTax(income, [[600000,0],[1200000,0.05],[2400000,0.15],[3600000,0.25],[6000000,0.35],[Infinity,0.45]]);
             }
