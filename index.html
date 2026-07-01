@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3640736450417804" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="icon" href="assets/Black White Vintage Grunge Rough Square Creative Studio Call Logo (1).png" type="image/png">
-    <title>Poor People - Financial Goal Calculator & AI-Powered Wealth Planning</title>
-    <meta name="description" content="Calculate your path to financial freedom with Poor People's AI-powered financial calculator. Discover exactly how long it will take to reach your wealth goals with expert financial planning tools and resources.">
-=======
     <title>Financial Freedom Calculator - AI-Powered Wealth Planning</title>
     <meta name="description" content="Calculate your path to financial freedom with the Financial Freedom Calculator. Discover exactly how long it will take to reach your wealth goals with expert financial planning tools and resources for aspiring investors and individuals seeking financial growth.">
->>>>>>> e1622439337bddac4ad123c34c2672414bfc53a7
     <meta name="keywords" content="financial calculator, wealth building, financial planning, money goals, savings calculator, investment planning, financial freedom, budgeting tools, personal finance, AI financial planning">
    
     <!-- Open Graph / Facebook -->
@@ -199,6 +194,32 @@
             background: var(--input-bg);
             color: var(--input-text);
             cursor: pointer;
+        }
+
+        .calc-field,
+        .calc-select {
+            background: var(--input-bg);
+            color: var(--input-text);
+            width: 100%;
+        }
+
+        .calc-field::placeholder {
+            color: var(--input-placeholder);
+        }
+
+        .calc-result {
+            background: rgba(139, 69, 19, 0.12);
+            border: 1px solid rgba(139, 69, 19, 0.2);
+        }
+
+        .dark .calc-result {
+            background: rgba(245, 222, 179, 0.08);
+            border-color: rgba(245, 222, 179, 0.15);
+        }
+
+        .tip-preset.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white !important;
         }
 
         .blog-card {
@@ -436,6 +457,15 @@
             background: #FF0000;
         }
 
+        .instagram-icon {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .page-last-updated {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
         /* Enhanced Logo Styling */
         .logo-container {
             position: relative;
@@ -599,8 +629,22 @@
                     </div>
                 </div>
                
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6">
                     <a class="nav-item cursor-pointer" onclick="showPage('calculator')">Calculator</a>
+                    <div class="relative group">
+                        <button class="nav-item flex items-center">
+                            Calculators <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-wide absolute top-full left-0 mt-2 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a onclick="showPage('calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Financial Freedom</a>
+                            <a onclick="showPage('tip-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Tip Calculator</a>
+                            <a onclick="showPage('max-heart-rate-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Max Heart Rate</a>
+                            <a onclick="showPage('income-tax-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Income Tax</a>
+                            <a onclick="showPage('gpa-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Cumulative GPA</a>
+                            <a onclick="showPage('mortgage-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">Mortgage</a>
+                            <a onclick="showPage('era-calculator')" class="dropdown-item block px-4 py-2 hover:bg-white hover:bg-opacity-10 cursor-pointer">ERA (Baseball)</a>
+                        </div>
+                    </div>
                     <a class="nav-item cursor-pointer" onclick="showPage('blog')">Blog</a>
                     <a class="nav-item cursor-pointer" onclick="showPage('about')">About</a>
                     <a class="nav-item cursor-pointer" onclick="showPage('contact')">Contact</a>
@@ -617,14 +661,6 @@
                 </div>
                
                 <div class="flex items-center space-x-4">
-                    <div class="hidden md:flex social-icons">
-                        <a href="https://www.pinterest.com/ecalculatorofficial/" target="_blank" rel="noopener noreferrer" class="social-icon pinterest-icon" aria-label="Pinterest">
-                            <i class="fab fa-pinterest"></i>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCUZxjzeQRzzgN9hmuS4VVaA" target="_blank" rel="noopener noreferrer" class="social-icon youtube-icon" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
                     <button onclick="toggleTheme()" class="w-10 h-10 glass-effect rounded-lg flex items-center justify-center text-primary hover:bg-white hover:bg-opacity-10">
                         <i id="theme-icon" class="fas fa-moon"></i>
                     </button>
@@ -637,7 +673,16 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden mt-4 hidden">
                 <div class="rounded-lg p-4 space-y-2">
-                    <a onclick="showPage('calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer">Calculator</a>
+                    <a onclick="showPage('calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer">Financial Freedom Calculator</a>
+                    <div class="border-t border-white border-opacity-20 pt-2">
+                        <p class="text-xs text-muted uppercase tracking-wide mb-1">Calculators</p>
+                        <a onclick="showPage('tip-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Tip Calculator</a>
+                        <a onclick="showPage('max-heart-rate-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Max Heart Rate</a>
+                        <a onclick="showPage('income-tax-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Income Tax</a>
+                        <a onclick="showPage('gpa-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Cumulative GPA</a>
+                        <a onclick="showPage('mortgage-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">Mortgage</a>
+                        <a onclick="showPage('era-calculator'); toggleMobileMenu()" class="block py-2 cursor-pointer text-sm">ERA (Baseball)</a>
+                    </div>
                     <a onclick="showPage('blog'); toggleMobileMenu()" class="block py-2 cursor-pointer">Blog</a>
                     <a onclick="showPage('about'); toggleMobileMenu()" class="block py-2 cursor-pointer">About</a>
                     <a onclick="showPage('contact'); toggleMobileMenu()" class="block py-2 cursor-pointer">Contact</a>
@@ -654,7 +699,7 @@
     <!-- Main Content -->
     <main class="pt-24">
         <!-- Calculator Page -->
-        <div id="calculator-page" class="page">
+        <div id="calculator-page" class="page" data-last-updated="2026-06-30">
             <div class="container mx-auto px-6 py-12">
                 <!-- Hero Section -->
                 <div class="text-center mb-16 slide-in">
@@ -665,6 +710,7 @@
                         Discover exactly how long it will take to reach your wealth goals with our AI-powered financial calculator.
                     </p>
                     <div class="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
+                    <p class="page-last-updated mt-4"></p>
                 </div>
 
                 <!-- Financial Input Section -->
@@ -774,8 +820,268 @@
             </div>
         </div>
 
+        <!-- Tip Calculator -->
+        <div id="tip-calculator-page" class="page hidden" data-last-updated="2026-06-30">
+            <div class="container mx-auto px-6 py-12">
+                <div class="text-center mb-12 slide-in">
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Tip <span class="text-accent">Calculator</span></h1>
+                    <p class="text-lg text-secondary max-w-2xl mx-auto">Calculate tip amounts for any percentage of your bill and see the total including tip. Split evenly across any number of people.</p>
+                    <p class="page-last-updated mt-4"></p>
+                </div>
+                <div class="max-w-2xl mx-auto glass-effect rounded-2xl p-8 slide-in">
+                    <div class="mb-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <label for="tip-currency" class="text-primary font-medium">Currency</label>
+                        <select id="tip-currency" class="calc-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent font-semibold min-w-[200px]"></select>
+                    </div>
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Bill Amount</label>
+                            <div class="relative">
+                                <span class="tip-currency-prefix absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
+                                <input type="number" id="tip-bill" min="0" step="0.01" placeholder="Enter bill amount" class="calc-field pl-10 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Tip Percentage</label>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <button type="button" class="tip-preset px-4 py-2 rounded-lg glass-effect text-primary font-medium" data-tip="10">10%</button>
+                                <button type="button" class="tip-preset px-4 py-2 rounded-lg glass-effect text-primary font-medium" data-tip="15">15%</button>
+                                <button type="button" class="tip-preset px-4 py-2 rounded-lg glass-effect text-primary font-medium active" data-tip="18">18%</button>
+                                <button type="button" class="tip-preset px-4 py-2 rounded-lg glass-effect text-primary font-medium" data-tip="20">20%</button>
+                            </div>
+                            <input type="number" id="tip-percent" min="0" max="100" step="0.5" value="18" class="calc-field px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                        </div>
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Split Between (people)</label>
+                            <input type="number" id="tip-split" min="1" value="1" class="calc-field px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                        </div>
+                    </div>
+                    <div id="tip-results" class="calc-result rounded-xl p-6 mt-8 space-y-3 hidden">
+                        <div class="flex justify-between"><span class="text-secondary">Tip Amount</span><span id="tip-amount" class="font-bold text-accent text-lg">—</span></div>
+                        <div class="flex justify-between"><span class="text-secondary">Total (Bill + Tip)</span><span id="tip-total" class="font-bold text-primary text-lg">—</span></div>
+                        <div class="flex justify-between border-t border-primary border-opacity-20 pt-3"><span class="text-secondary">Per Person</span><span id="tip-per-person" class="font-bold text-accent text-lg">—</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Max Heart Rate Calculator -->
+        <div id="max-heart-rate-calculator-page" class="page hidden" data-last-updated="2026-06-30">
+            <div class="container mx-auto px-6 py-12">
+                <div class="text-center mb-12 slide-in">
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Max Heart Rate <span class="text-accent">Calculator</span></h1>
+                    <p class="text-lg text-secondary max-w-2xl mx-auto">Estimate your maximum heart rate using internationally recognized formulas for training and cardio planning.</p>
+                    <p class="page-last-updated mt-4"></p>
+                </div>
+                <div class="max-w-2xl mx-auto glass-effect rounded-2xl p-8 slide-in">
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Age (years)</label>
+                            <input type="number" id="hr-age" min="1" max="120" placeholder="Enter your age" class="calc-field px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                        </div>
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Formula</label>
+                            <select id="hr-formula" class="calc-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                                <option value="standard">Standard — 220 − age (widely used)</option>
+                                <option value="tanaka">Tanaka — 208 − (0.7 × age)</option>
+                                <option value="gellish">Gellish — 207 − (0.7 × age)</option>
+                                <option value="gulati">Gulati (women) — 206 − (0.88 × age)</option>
+                                <option value="inbar">Inbar — 205.8 − (0.685 × age)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="hr-results" class="calc-result rounded-xl p-6 mt-8 hidden">
+                        <p class="text-center text-sm text-muted mb-2">Estimated Max Heart Rate</p>
+                        <p id="hr-max" class="text-center text-4xl font-bold text-accent mb-6">—</p>
+                        <h3 class="text-lg font-semibold text-primary mb-3">Training Zones</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between"><span class="text-secondary">Light (50–60%)</span><span id="hr-zone-light" class="text-primary font-medium">—</span></div>
+                            <div class="flex justify-between"><span class="text-secondary">Moderate (60–70%)</span><span id="hr-zone-moderate" class="text-primary font-medium">—</span></div>
+                            <div class="flex justify-between"><span class="text-secondary">Vigorous (70–85%)</span><span id="hr-zone-vigorous" class="text-primary font-medium">—</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Income Tax Calculator -->
+        <div id="income-tax-calculator-page" class="page hidden" data-last-updated="2026-06-30">
+            <div class="container mx-auto px-6 py-12">
+                <div class="text-center mb-12 slide-in">
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Income Tax <span class="text-accent">Calculator</span></h1>
+                    <p class="text-lg text-secondary max-w-3xl mx-auto">Estimate income tax using progressive brackets for multiple countries. Enter annual income in the local currency of your selected region.</p>
+                    <p class="page-last-updated mt-4"></p>
+                </div>
+                <div class="max-w-2xl mx-auto glass-effect rounded-2xl p-8 slide-in">
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Country / Region</label>
+                            <select id="tax-country" class="calc-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                                <option value="us">United States (Federal)</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="canada">Canada (Federal)</option>
+                                <option value="australia">Australia</option>
+                                <option value="india">India</option>
+                                <option value="germany">Germany</option>
+                                <option value="pakistan">Pakistan</option>
+                                <option value="custom">Custom Flat Rate (%)</option>
+                            </select>
+                        </div>
+                        <div id="tax-filing-wrap">
+                            <label class="block text-primary font-medium mb-2">Filing Status (US)</label>
+                            <select id="tax-filing" class="calc-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                                <option value="single">Single</option>
+                                <option value="married">Married Filing Jointly</option>
+                            </select>
+                        </div>
+                        <div id="tax-custom-wrap" class="hidden">
+                            <label class="block text-primary font-medium mb-2">Custom Tax Rate (%)</label>
+                            <input type="number" id="tax-custom-rate" min="0" max="100" step="0.1" value="20" class="calc-field px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                        </div>
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Annual Gross Income <span id="tax-currency-label" class="text-muted text-sm">(local currency)</span></label>
+                            <input type="number" id="tax-income" min="0" step="1" placeholder="Enter annual income" class="calc-field px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                        </div>
+                    </div>
+                    <div id="tax-results" class="calc-result rounded-xl p-6 mt-8 space-y-3 hidden">
+                        <div class="flex justify-between"><span class="text-secondary">Estimated Tax</span><span id="tax-owed" class="font-bold text-accent text-lg">—</span></div>
+                        <div class="flex justify-between"><span class="text-secondary">After-Tax Income</span><span id="tax-after" class="font-bold text-primary text-lg">—</span></div>
+                        <div class="flex justify-between border-t border-primary border-opacity-20 pt-3"><span class="text-secondary">Effective Tax Rate</span><span id="tax-effective" class="font-bold text-primary">—</span></div>
+                    </div>
+                    <p class="text-xs text-muted mt-4 text-center">Estimates only. Actual tax may vary with deductions, credits, state/provincial taxes, and local rules.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cumulative GPA Calculator -->
+        <div id="gpa-calculator-page" class="page hidden" data-last-updated="2026-06-30">
+            <div class="container mx-auto px-6 py-12">
+                <div class="text-center mb-12 slide-in">
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Cumulative GPA <span class="text-accent">Calculator</span></h1>
+                    <p class="text-lg text-secondary max-w-2xl mx-auto">Calculate weighted GPA using grading scales used worldwide — US 4.0, 5.0, 10-point, and percentage.</p>
+                    <p class="page-last-updated mt-4"></p>
+                </div>
+                <div class="max-w-3xl mx-auto glass-effect rounded-2xl p-8 slide-in">
+                    <div class="mb-6">
+                        <label class="block text-primary font-medium mb-2">Grading Scale</label>
+                        <select id="gpa-scale" class="calc-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                            <option value="4.0">US 4.0 Scale (A=4, B=3, C=2, D=1)</option>
+                            <option value="5.0">US 5.0 Weighted Scale</option>
+                            <option value="10">10-Point Scale (common internationally)</option>
+                            <option value="percent">Percentage (0–100)</option>
+                        </select>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-left text-primary border-b border-primary border-opacity-20">
+                                    <th class="pb-3 pr-2">Course</th>
+                                    <th class="pb-3 pr-2 w-24">Credits</th>
+                                    <th class="pb-3 w-28">Grade</th>
+                                    <th class="pb-3 w-10"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="gpa-rows"></tbody>
+                        </table>
+                    </div>
+                    <button type="button" id="gpa-add-row" class="mt-4 px-4 py-2 rounded-lg glass-effect text-primary font-medium"><i class="fas fa-plus mr-2"></i>Add Course</button>
+                    <div id="gpa-results" class="calc-result rounded-xl p-6 mt-8 text-center hidden">
+                        <p class="text-sm text-muted mb-1">Cumulative GPA</p>
+                        <p id="gpa-value" class="text-4xl font-bold text-accent">—</p>
+                        <p id="gpa-credits" class="text-sm text-secondary mt-2">—</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mortgage Calculator -->
+        <div id="mortgage-calculator-page" class="page hidden" data-last-updated="2026-06-30">
+            <div class="container mx-auto px-6 py-12">
+                <div class="text-center mb-12 slide-in">
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Mortgage <span class="text-accent">Calculator</span></h1>
+                    <p class="text-lg text-secondary max-w-2xl mx-auto">Estimate monthly mortgage payments, total interest, and loan cost for home buyers anywhere in the world.</p>
+                    <p class="page-last-updated mt-4"></p>
+                </div>
+                <div class="max-w-2xl mx-auto glass-effect rounded-2xl p-8 slide-in">
+                    <div class="mb-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <label for="mortgage-currency" class="text-primary font-medium">Currency</label>
+                        <select id="mortgage-currency" class="calc-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent font-semibold min-w-[200px]"></select>
+                    </div>
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Home Price</label>
+                            <div class="relative">
+                                <span class="mortgage-currency-prefix absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
+                                <input type="number" id="mortgage-price" min="0" step="1" placeholder="Property price" class="calc-field pl-10 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Down Payment</label>
+                            <div class="relative">
+                                <span class="mortgage-currency-prefix absolute left-4 top-1/2 transform -translate-y-1/2 text-primary font-bold z-10">$</span>
+                                <input type="number" id="mortgage-down" min="0" step="1" placeholder="Down payment amount" class="calc-field pl-10 pr-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-primary font-medium mb-2">Annual Interest Rate (%)</label>
+                                <input type="number" id="mortgage-rate" min="0" max="30" step="0.01" placeholder="e.g. 6.5" class="calc-field px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div>
+                                <label class="block text-primary font-medium mb-2">Loan Term (years)</label>
+                                <input type="number" id="mortgage-years" min="1" max="40" value="30" class="calc-field px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mortgage-results" class="calc-result rounded-xl p-6 mt-8 space-y-3 hidden">
+                        <div class="flex justify-between"><span class="text-secondary">Loan Amount</span><span id="mortgage-loan" class="font-bold text-primary">—</span></div>
+                        <div class="flex justify-between"><span class="text-secondary">Monthly Payment</span><span id="mortgage-monthly" class="font-bold text-accent text-lg">—</span></div>
+                        <div class="flex justify-between"><span class="text-secondary">Total Interest</span><span id="mortgage-interest" class="font-bold text-primary">—</span></div>
+                        <div class="flex justify-between border-t border-primary border-opacity-20 pt-3"><span class="text-secondary">Total Cost</span><span id="mortgage-total" class="font-bold text-accent">—</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ERA Calculator -->
+        <div id="era-calculator-page" class="page hidden" data-last-updated="2026-06-30">
+            <div class="container mx-auto px-6 py-12">
+                <div class="text-center mb-12 slide-in">
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">ERA <span class="text-accent">Calculator</span></h1>
+                    <p class="text-lg text-secondary max-w-2xl mx-auto">Calculate Earned Run Average (ERA) for baseball and softball pitchers worldwide. ERA = (Earned Runs × 9) ÷ Innings Pitched.</p>
+                    <p class="page-last-updated mt-4"></p>
+                </div>
+                <div class="max-w-2xl mx-auto glass-effect rounded-2xl p-8 slide-in">
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Earned Runs</label>
+                            <input type="number" id="era-runs" min="0" step="1" placeholder="Total earned runs allowed" class="calc-field px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                        </div>
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Innings Pitched</label>
+                            <input type="text" id="era-innings" placeholder="e.g. 54.1 (54 innings, 1 out)" class="calc-field px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                            <p class="text-xs text-muted mt-1">Use baseball notation: .1 = 1 out, .2 = 2 outs (e.g. 6.2 = 6⅔ innings)</p>
+                        </div>
+                        <div>
+                            <label class="block text-primary font-medium mb-2">Innings per Game</label>
+                            <select id="era-game-length" class="calc-select px-4 py-3 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent">
+                                <option value="9">9 innings (standard baseball)</option>
+                                <option value="7">7 innings (softball / doubleheaders)</option>
+                                <option value="6">6 innings (youth leagues)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="era-results" class="calc-result rounded-xl p-6 mt-8 text-center hidden">
+                        <p class="text-sm text-muted mb-1">Earned Run Average</p>
+                        <p id="era-value" class="text-4xl font-bold text-accent">—</p>
+                        <p id="era-detail" class="text-sm text-secondary mt-3">—</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Blog Page -->
-        <div id="blog-page" class="page hidden">
+        <div id="blog-page" class="page hidden" data-last-updated="2025-06-18">
             <div class="container mx-auto px-6 py-12">
                 <div class="text-center mb-16 slide-in">
                     <h1 class="text-5xl font-bold text-primary mb-6">
@@ -784,6 +1090,7 @@
                     <p class="text-xl text-secondary max-w-3xl mx-auto">
                         Explore expert insights, practical tips, and powerful tools to accelerate your journey to financial freedom.
                     </p>
+                    <p class="page-last-updated mt-4"></p>
                 </div>
 
                 <!-- Comprehensive Blog Content -->
@@ -921,13 +1228,14 @@
         </div>
 
         <!-- About Page -->
-        <div id="about-page" class="page hidden">
+        <div id="about-page" class="page hidden" data-last-updated="2025-06-18">
             <div class="container mx-auto px-6 py-12">
                 <div class="text-center mb-16 slide-in">
                     <h1 class="text-5xl font-bold text-primary mb-6">
                         About <span class="text-accent">Financial Freedom Calculator</span>
                     </h1>
                     <p class="text-xl text-secondary">Empowering your journey to financial freedom through intelligent tools and expert guidance.</p>
+                    <p class="page-last-updated mt-4"></p>
                 </div>
 
                 <div class="max-w-4xl mx-auto space-y-12">
@@ -964,13 +1272,14 @@
         </div>
 
         <!-- Contact Page -->
-        <div id="contact-page" class="page hidden">
+        <div id="contact-page" class="page hidden" data-last-updated="2025-06-18">
             <div class="container mx-auto px-6 py-12">
                 <div class="text-center mb-16 slide-in">
                     <h1 class="text-5xl font-bold text-primary mb-6">
                         Get in <span class="text-accent">Touch</span>
                     </h1>
                     <p class="text-xl text-secondary">Have questions about our financial calculator? We're here to help!</p>
+                    <p class="page-last-updated mt-4"></p>
                 </div>
 
                 <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-12">
@@ -1014,12 +1323,12 @@
         </div>
 
         <!-- Enhanced Legal Pages -->
-        <div id="privacy-page" class="page hidden">
+        <div id="privacy-page" class="page hidden" data-last-updated="2025-06-18">
             <div class="container mx-auto px-6 py-12">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
                         <h1 class="text-4xl font-bold text-primary mb-4">Privacy Policy</h1>
-                        <p class="text-secondary">Last Updated: June 18, 2025</p>
+                        <p class="page-last-updated text-secondary"></p>
                     </div>
                     <div class="glass-effect rounded-2xl p-8">
                         <div class="legal-content space-y-6">
@@ -1126,12 +1435,12 @@
             </div>
         </div>
 
-        <div id="terms-page" class="page hidden">
+        <div id="terms-page" class="page hidden" data-last-updated="2025-06-18">
             <div class="container mx-auto px-6 py-12">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
                         <h1 class="text-4xl font-bold text-primary mb-4">Terms and Conditions</h1>
-                        <p class="text-secondary">Last Updated: June 18, 2025</p>
+                        <p class="page-last-updated text-secondary"></p>
                     </div>
                     <div class="glass-effect rounded-2xl p-8">
                         <div class="legal-content space-y-6">
@@ -1169,24 +1478,24 @@
                             <p>You are granted a limited, non-exclusive, non-transferable, revocable license to access and use the Services for personal, non-commercial purposes. Any unauthorized use of our intellectual property is strictly prohibited.</p>
 
                             <h2 class="text-2xl font-bold text-primary">5. Disclaimer of Warranties</h2>
-                            <p>THE SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, FINANCIAL FREEDOM CALCULATOR DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:</p>
+                            <p>The services are provided on an "as is" and "as available" basis without warranties of any kind, whether express, implied, or statutory. To the fullest extent permitted by applicable law, Financial Freedom Calculator disclaims all warranties, including but not limited to:</p>
                             <ul class="list-disc list-inside space-y-2">
-                                <li>IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT</li>
-                                <li>WARRANTIES THAT THE SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF VIRUSES OR HARMFUL COMPONENTS</li>
-                                <li>WARRANTIES REGARDING THE ACCURACY, RELIABILITY, OR COMPLETENESS OF CALCULATOR RESULTS, PROJECTIONS, OR EDUCATIONAL CONTENT</li>
-                                <li>WARRANTIES THAT USE OF THE SERVICES WILL ACHIEVE ANY SPECIFIC FINANCIAL OUTCOME OR RESULT</li>
+                                <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement</li>
+                                <li>Warranties that the services will be uninterrupted, error-free, secure, or free of viruses or harmful components</li>
+                                <li>Warranties regarding the accuracy, reliability, or completeness of calculator results, projections, or educational content</li>
+                                <li>Warranties that use of the services will achieve any specific financial outcome or result</li>
                             </ul>
                             <p>Calculator results are estimates based on user-provided inputs and assumptions and should not be relied upon as guarantees of future financial performance. Market conditions, economic factors, and personal circumstances may cause actual results to differ materially from projections.</p>
 
                             <h2 class="text-2xl font-bold text-primary">6. Limitation of Liability</h2>
-                            <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL FINANCIAL FREEDOM CALCULATOR, ITS OWNERS, OPERATORS, AFFILIATES, LICENSORS, OR SERVICE PROVIDERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR IN CONNECTION WITH:</p>
+                            <p>To the maximum extent permitted by applicable law, in no event shall Financial Freedom Calculator, its owners, operators, affiliates, licensors, or service providers be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, including but not limited to loss of profits, data, goodwill, or other intangible losses, arising out of or in connection with:</p>
                             <ul class="list-disc list-inside space-y-2">
                                 <li>Your access to, use of, or inability to access or use the Services</li>
                                 <li>Any financial decisions made based on calculator results or website content</li>
                                 <li>Unauthorized access to or alteration of your data or transmissions</li>
                                 <li>Statements or conduct of any third party on or through the Services</li>
                             </ul>
-                            <p>IN NO EVENT SHALL OUR TOTAL AGGREGATE LIABILITY EXCEED THE GREATER OF ONE HUNDRED U.S. DOLLARS ($100.00) OR THE AMOUNT YOU PAID TO US, IF ANY, IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.</p>
+                            <p>In no event shall our total aggregate liability exceed the greater of one hundred U.S. dollars ($100.00) or the amount you paid to us, if any, in the twelve (12) months preceding the claim.</p>
                             <p>Some jurisdictions do not allow the exclusion or limitation of certain damages. In such jurisdictions, our liability shall be limited to the fullest extent permitted by law.</p>
 
                             <h2 class="text-2xl font-bold text-primary">7. Indemnification</h2>
@@ -1216,12 +1525,13 @@
             </div>
         </div>
 
-        <div id="disclaimer-page" class="page hidden">
+        <div id="disclaimer-page" class="page hidden" data-last-updated="2025-06-18">
             <div class="container mx-auto px-6 py-12">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12">
                         <h1 class="text-4xl font-bold text-primary mb-4">Disclaimer</h1>
                         <p class="text-secondary">Important information about our services and limitations</p>
+                        <p class="page-last-updated mt-2"></p>
                     </div>
                     <div class="glass-effect rounded-2xl p-8">
                         <div class="legal-content space-y-6">
@@ -1267,13 +1577,12 @@
                             <span class="text-xl font-bold text-primary block leading-tight">Poor People</span>
                             <span class="text-xs text-muted block">Financial Freedom Calculator</span>
                         </div>
-<<<<<<< HEAD
-=======
-                        <span class="text-xl font-bold text-primary">Financial Freedom Calculator</span>
->>>>>>> e1622439337bddac4ad123c34c2672414bfc53a7
                     </div>
                     <p class="text-muted text-sm">Empowering aspiring investors and individuals seeking financial growth with intelligent tools and expert guidance.</p>
                     <div class="flex space-x-3">
+                        <a href="https://www.instagram.com/ecalculatorofficial/" target="_blank" rel="noopener noreferrer" class="social-icon instagram-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                         <a href="https://www.pinterest.com/ecalculatorofficial/" target="_blank" rel="noopener noreferrer" class="social-icon pinterest-icon" aria-label="Pinterest">
                             <i class="fab fa-pinterest"></i>
                         </a>
@@ -1311,7 +1620,7 @@
             </div>
            
             <div class="mt-8 pt-8 border-t border-primary border-opacity-20 text-center text-sm text-muted">
-                © 2025 Financial Freedom Calculator. All rights reserved.
+                © 2026 E calculator. All rights reserved.
             </div>
         </div>
     </footer>
@@ -1364,6 +1673,8 @@
             generateQuickTargets();
             setupEventListeners();
             applyTheme();
+            initPageDates();
+            initCalculators();
             showPage('calculator');
             setupDragFunctionality();
         }
@@ -1546,6 +1857,24 @@
             container.querySelectorAll('.target-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     selectTarget(parseFloat(btn.dataset.target), e);
+                });
+            });
+        }
+
+        function initPageDates() {
+            document.querySelectorAll('.page[data-last-updated]').forEach(page => {
+                const dateStr = page.dataset.lastUpdated;
+                if (!dateStr) return;
+
+                const date = new Date(dateStr + 'T12:00:00');
+                const formatted = date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                page.querySelectorAll('.page-last-updated').forEach(el => {
+                    el.textContent = `Last updated: ${formatted}`;
                 });
             });
         }
@@ -1915,6 +2244,370 @@
             } else {
                 return formatMoney(amount);
             }
+        }
+
+        // --- Additional Calculators ---
+        function populateCurrencySelect(selectId, prefixClass) {
+            const select = document.getElementById(selectId);
+            if (!select) return;
+            select.innerHTML = Object.entries(currencies).map(([code, c]) =>
+                `<option value="${code}">${code} — ${c.symbol}</option>`
+            ).join('');
+            select.value = currentCurrency;
+            updateCalcCurrencyPrefix(prefixClass, getCurrency().symbol);
+            select.addEventListener('change', () => {
+                updateCalcCurrencyPrefix(prefixClass, currencies[select.value].symbol);
+                if (selectId === 'tip-currency') calculateTip();
+                if (selectId === 'mortgage-currency') calculateMortgage();
+            });
+        }
+
+        function updateCalcCurrencyPrefix(className, symbol) {
+            document.querySelectorAll('.' + className).forEach(el => {
+                el.textContent = symbol;
+            });
+        }
+
+        function formatMoneyByCode(amount, code) {
+            const c = currencies[code] || currencies.USD;
+            return c.symbol + new Intl.NumberFormat(c.locale, {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 2
+            }).format(amount);
+        }
+
+        function formatTaxMoney(amount, country) {
+            const localeMap = {
+                us: 'en-US', uk: 'en-GB', canada: 'en-CA', australia: 'en-AU',
+                india: 'en-IN', germany: 'de-DE', pakistan: 'en-PK', custom: 'en-US'
+            };
+            const symbolMap = {
+                us: '$', uk: '£', canada: 'C$', australia: 'A$', india: '₹', germany: '€', pakistan: '₨', custom: ''
+            };
+            const locale = localeMap[country] || 'en-US';
+            const sym = symbolMap[country] || '';
+            return sym + new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(Math.round(amount));
+        }
+
+        function initCalculators() {
+            populateCurrencySelect('tip-currency', 'tip-currency-prefix');
+            populateCurrencySelect('mortgage-currency', 'mortgage-currency-prefix');
+
+            document.getElementById('tip-bill')?.addEventListener('input', calculateTip);
+            document.getElementById('tip-percent')?.addEventListener('input', calculateTip);
+            document.getElementById('tip-split')?.addEventListener('input', calculateTip);
+            document.querySelectorAll('.tip-preset').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.tip-preset').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.getElementById('tip-percent').value = btn.dataset.tip;
+                    calculateTip();
+                });
+            });
+
+            document.getElementById('hr-age')?.addEventListener('input', calculateMaxHeartRate);
+            document.getElementById('hr-formula')?.addEventListener('change', calculateMaxHeartRate);
+
+            document.getElementById('tax-country')?.addEventListener('change', handleTaxCountryChange);
+            document.getElementById('tax-filing')?.addEventListener('change', calculateIncomeTax);
+            document.getElementById('tax-custom-rate')?.addEventListener('input', calculateIncomeTax);
+            document.getElementById('tax-income')?.addEventListener('input', calculateIncomeTax);
+            handleTaxCountryChange();
+
+            document.getElementById('gpa-scale')?.addEventListener('change', () => {
+                updateGpaPlaceholders();
+                calculateGpa();
+            });
+            document.getElementById('gpa-add-row')?.addEventListener('click', () => addGpaRow());
+            initGpaRows();
+
+            document.getElementById('mortgage-price')?.addEventListener('input', calculateMortgage);
+            document.getElementById('mortgage-down')?.addEventListener('input', calculateMortgage);
+            document.getElementById('mortgage-rate')?.addEventListener('input', calculateMortgage);
+            document.getElementById('mortgage-years')?.addEventListener('input', calculateMortgage);
+
+            document.getElementById('era-runs')?.addEventListener('input', calculateEra);
+            document.getElementById('era-innings')?.addEventListener('input', calculateEra);
+            document.getElementById('era-game-length')?.addEventListener('change', calculateEra);
+        }
+
+        function calculateTip() {
+            const bill = parseFloat(document.getElementById('tip-bill')?.value) || 0;
+            const percent = parseFloat(document.getElementById('tip-percent')?.value) || 0;
+            const split = Math.max(1, parseInt(document.getElementById('tip-split')?.value) || 1);
+            const code = document.getElementById('tip-currency')?.value || currentCurrency;
+            const results = document.getElementById('tip-results');
+
+            if (bill <= 0) {
+                results?.classList.add('hidden');
+                return;
+            }
+
+            const tip = bill * (percent / 100);
+            const total = bill + tip;
+            const perPerson = total / split;
+
+            document.getElementById('tip-amount').textContent = formatMoneyByCode(tip, code);
+            document.getElementById('tip-total').textContent = formatMoneyByCode(total, code);
+            document.getElementById('tip-per-person').textContent = formatMoneyByCode(perPerson, code);
+            results?.classList.remove('hidden');
+        }
+
+        function calculateMaxHeartRate() {
+            const age = parseInt(document.getElementById('hr-age')?.value);
+            const formula = document.getElementById('hr-formula')?.value;
+            const results = document.getElementById('hr-results');
+
+            if (!age || age < 1 || age > 120) {
+                results?.classList.add('hidden');
+                return;
+            }
+
+            let maxHr;
+            switch (formula) {
+                case 'tanaka': maxHr = 208 - 0.7 * age; break;
+                case 'gellish': maxHr = 207 - 0.7 * age; break;
+                case 'gulati': maxHr = 206 - 0.88 * age; break;
+                case 'inbar': maxHr = 205.8 - 0.685 * age; break;
+                default: maxHr = 220 - age;
+            }
+            maxHr = Math.round(maxHr);
+
+            document.getElementById('hr-max').textContent = maxHr + ' bpm';
+            document.getElementById('hr-zone-light').textContent = Math.round(maxHr * 0.5) + '–' + Math.round(maxHr * 0.6) + ' bpm';
+            document.getElementById('hr-zone-moderate').textContent = Math.round(maxHr * 0.6) + '–' + Math.round(maxHr * 0.7) + ' bpm';
+            document.getElementById('hr-zone-vigorous').textContent = Math.round(maxHr * 0.7) + '–' + Math.round(maxHr * 0.85) + ' bpm';
+            results?.classList.remove('hidden');
+        }
+
+        function handleTaxCountryChange() {
+            const country = document.getElementById('tax-country')?.value;
+            const filingWrap = document.getElementById('tax-filing-wrap');
+            const customWrap = document.getElementById('tax-custom-wrap');
+            const labels = {
+                us: '(USD)', uk: '(GBP)', canada: '(CAD)', australia: '(AUD)',
+                india: '(INR)', germany: '(EUR)', pakistan: '(PKR)', custom: '(any currency)'
+            };
+            document.getElementById('tax-currency-label').textContent = labels[country] || '';
+            filingWrap?.classList.toggle('hidden', country !== 'us');
+            customWrap?.classList.toggle('hidden', country !== 'custom');
+            calculateIncomeTax();
+        }
+
+        function computeProgressiveTax(income, brackets) {
+            let tax = 0;
+            let prev = 0;
+            for (let i = 0; i < brackets.length; i++) {
+                const [limit, rate] = brackets[i];
+                if (income <= prev) break;
+                const upper = Math.min(income, limit);
+                const taxable = upper - prev;
+                if (taxable > 0) tax += taxable * rate;
+                prev = limit;
+                if (income <= limit) break;
+            }
+            return tax;
+        }
+
+        function calculateIncomeTax() {
+            const income = parseFloat(document.getElementById('tax-income')?.value) || 0;
+            const country = document.getElementById('tax-country')?.value;
+            const results = document.getElementById('tax-results');
+
+            if (income <= 0) {
+                results?.classList.add('hidden');
+                return;
+            }
+
+            let tax = 0;
+            const filing = document.getElementById('tax-filing')?.value;
+
+            if (country === 'custom') {
+                const rate = parseFloat(document.getElementById('tax-custom-rate')?.value) || 0;
+                tax = income * (rate / 100);
+            } else if (country === 'us') {
+                const single = [[11600,0.10],[47150,0.12],[100525,0.22],[191950,0.24],[243725,0.32],[609350,0.35],[Infinity,0.37]];
+                const married = [[23200,0.10],[94300,0.12],[201050,0.22],[383900,0.24],[487450,0.32],[731200,0.35],[Infinity,0.37]];
+                tax = computeProgressiveTax(income, filing === 'married' ? married : single);
+            } else if (country === 'uk') {
+                const allowance = 12570;
+                const taxable = Math.max(0, income - allowance);
+                tax = computeProgressiveTax(taxable, [[37700,0.20],[112570,0.40],[Infinity,0.45]]);
+            } else if (country === 'canada') {
+                tax = computeProgressiveTax(income, [[55867,0.15],[111733,0.205],[173205,0.26],[246752,0.29],[Infinity,0.33]]);
+            } else if (country === 'australia') {
+                tax = computeProgressiveTax(income, [[18200,0],[45000,0.19],[120000,0.325],[180000,0.37],[Infinity,0.45]]);
+            } else if (country === 'india') {
+                tax = computeProgressiveTax(income, [[300000,0],[600000,0.05],[900000,0.10],[1200000,0.15],[1500000,0.20],[Infinity,0.30]]);
+            } else if (country === 'germany') {
+                const taxable = Math.max(0, income - 11604);
+                tax = computeProgressiveTax(taxable, [[17005,0.14],[66760,0.24],[277826,0.42],[Infinity,0.45]]);
+            } else if (country === 'pakistan') {
+                tax = computeProgressiveTax(income, [[600000,0],[1200000,0.05],[2400000,0.15],[3600000,0.25],[6000000,0.35],[Infinity,0.45]]);
+            }
+
+            const after = income - tax;
+            const effective = income > 0 ? (tax / income * 100) : 0;
+
+            document.getElementById('tax-owed').textContent = formatTaxMoney(tax, country);
+            document.getElementById('tax-after').textContent = formatTaxMoney(after, country);
+            document.getElementById('tax-effective').textContent = effective.toFixed(1) + '%';
+            results?.classList.remove('hidden');
+        }
+
+        function letterToGpa(letter, scale) {
+            const map40 = { 'A+':4,'A':4,'A-':3.7,'B+':3.3,'B':3,'B-':2.7,'C+':2.3,'C':2,'C-':1.7,'D+':1.3,'D':1,'D-':0.7,'F':0 };
+            const map50 = { 'A+':5,'A':5,'A-':4.7,'B+':4.3,'B':4,'B-':3.7,'C+':3.3,'C':3,'C-':2.7,'D+':2.3,'D':2,'D-':1.7,'F':0 };
+            if (scale === '4.0') return map40[letter.toUpperCase()] ?? parseFloat(letter);
+            if (scale === '5.0') return map50[letter.toUpperCase()] ?? parseFloat(letter);
+            return parseFloat(letter);
+        }
+
+        function percentToGpa10(pct) {
+            if (pct >= 90) return 10;
+            if (pct >= 80) return 9;
+            if (pct >= 70) return 8;
+            if (pct >= 60) return 7;
+            if (pct >= 50) return 6;
+            if (pct >= 40) return 5;
+            return pct / 10;
+        }
+
+        function initGpaRows() {
+            const tbody = document.getElementById('gpa-rows');
+            if (!tbody || tbody.children.length) return;
+            for (let i = 0; i < 3; i++) addGpaRow();
+        }
+
+        function addGpaRow() {
+            const tbody = document.getElementById('gpa-rows');
+            if (!tbody) return;
+            const row = document.createElement('tr');
+            row.className = 'gpa-row';
+            row.innerHTML = `
+                <td class="py-2 pr-2"><input type="text" class="gpa-course calc-field px-3 py-2 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent" placeholder="Course name"></td>
+                <td class="py-2 pr-2"><input type="number" class="gpa-credits calc-field px-3 py-2 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent" min="0" step="0.5" value="3"></td>
+                <td class="py-2"><input type="text" class="gpa-grade calc-field px-3 py-2 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-accent gpa-grade-input" placeholder="A"></td>
+                <td class="py-2"><button type="button" class="gpa-remove text-muted hover:text-error" title="Remove"><i class="fas fa-times"></i></button></td>
+            `;
+            row.querySelector('.gpa-credits')?.addEventListener('input', calculateGpa);
+            row.querySelector('.gpa-grade')?.addEventListener('input', calculateGpa);
+            row.querySelector('.gpa-remove')?.addEventListener('click', () => {
+                if (tbody.querySelectorAll('.gpa-row').length > 1) {
+                    row.remove();
+                    calculateGpa();
+                }
+            });
+            tbody.appendChild(row);
+            updateGpaPlaceholders();
+            calculateGpa();
+        }
+
+        function updateGpaPlaceholders() {
+            const scale = document.getElementById('gpa-scale')?.value;
+            const placeholders = { '4.0': 'A, B+, 3.5', '5.0': 'A, B+, 4.5', '10': '8.5, 9', 'percent': '85, 92' };
+            document.querySelectorAll('.gpa-grade-input').forEach(el => {
+                el.placeholder = placeholders[scale] || 'Grade';
+            });
+        }
+
+        function calculateGpa() {
+            const scale = document.getElementById('gpa-scale')?.value;
+            const rows = document.querySelectorAll('.gpa-row');
+            const results = document.getElementById('gpa-results');
+            let totalPoints = 0;
+            let totalCredits = 0;
+
+            rows.forEach(row => {
+                const credits = parseFloat(row.querySelector('.gpa-credits')?.value) || 0;
+                const gradeRaw = row.querySelector('.gpa-grade')?.value?.trim();
+                if (!gradeRaw || credits <= 0) return;
+
+                let points;
+                if (scale === 'percent') {
+                    const pct = parseFloat(gradeRaw);
+                    if (isNaN(pct)) return;
+                    points = pct / 25 * 4;
+                } else if (scale === '10') {
+                    points = parseFloat(gradeRaw);
+                    if (isNaN(points)) points = percentToGpa10(parseFloat(gradeRaw));
+                } else {
+                    points = letterToGpa(gradeRaw, scale);
+                }
+
+                if (isNaN(points)) return;
+                totalPoints += points * credits;
+                totalCredits += credits;
+            });
+
+            if (totalCredits <= 0) {
+                results?.classList.add('hidden');
+                return;
+            }
+
+            const gpa = totalPoints / totalCredits;
+            const maxLabel = scale === '10' ? '/ 10' : scale === 'percent' ? ' (4.0 equiv.)' : scale === '5.0' ? '/ 5.0' : '/ 4.0';
+            document.getElementById('gpa-value').textContent = gpa.toFixed(2) + maxLabel;
+            document.getElementById('gpa-credits').textContent = totalCredits + ' total credit hours';
+            results?.classList.remove('hidden');
+        }
+
+        function calculateMortgage() {
+            const price = parseFloat(document.getElementById('mortgage-price')?.value) || 0;
+            const down = parseFloat(document.getElementById('mortgage-down')?.value) || 0;
+            const annualRate = parseFloat(document.getElementById('mortgage-rate')?.value) || 0;
+            const years = parseInt(document.getElementById('mortgage-years')?.value) || 30;
+            const code = document.getElementById('mortgage-currency')?.value || currentCurrency;
+            const results = document.getElementById('mortgage-results');
+
+            const principal = Math.max(0, price - down);
+            if (principal <= 0 || annualRate <= 0 || years <= 0) {
+                results?.classList.add('hidden');
+                return;
+            }
+
+            const monthlyRate = annualRate / 100 / 12;
+            const payments = years * 12;
+            const monthly = principal * (monthlyRate * Math.pow(1 + monthlyRate, payments)) / (Math.pow(1 + monthlyRate, payments) - 1);
+            const totalPaid = monthly * payments;
+            const totalInterest = totalPaid - principal;
+
+            document.getElementById('mortgage-loan').textContent = formatMoneyByCode(principal, code);
+            document.getElementById('mortgage-monthly').textContent = formatMoneyByCode(monthly, code);
+            document.getElementById('mortgage-interest').textContent = formatMoneyByCode(totalInterest, code);
+            document.getElementById('mortgage-total').textContent = formatMoneyByCode(totalPaid + down, code);
+            results?.classList.remove('hidden');
+        }
+
+        function parseBaseballInnings(value) {
+            const str = String(value).trim();
+            if (!str) return null;
+            const parts = str.split('.');
+            const whole = parseInt(parts[0], 10);
+            if (isNaN(whole) || whole < 0) return null;
+            if (parts.length === 1) return whole;
+            const outs = parseInt(parts[1], 10);
+            if (isNaN(outs) || outs < 0 || outs > 2) return null;
+            return whole + outs / 3;
+        }
+
+        function calculateEra() {
+            const runs = parseFloat(document.getElementById('era-runs')?.value);
+            const inningsStr = document.getElementById('era-innings')?.value;
+            const gameLength = parseInt(document.getElementById('era-game-length')?.value) || 9;
+            const results = document.getElementById('era-results');
+            const innings = parseBaseballInnings(inningsStr);
+
+            if (runs == null || isNaN(runs) || !innings || innings <= 0) {
+                results?.classList.add('hidden');
+                return;
+            }
+
+            const era = (runs * gameLength) / innings;
+            document.getElementById('era-value').textContent = era.toFixed(2);
+            document.getElementById('era-detail').textContent =
+                `${runs} earned run${runs !== 1 ? 's' : ''} over ${inningsStr} innings (${innings.toFixed(2)} IP) · ${gameLength}-inning standard`;
+            results?.classList.remove('hidden');
         }
     </script>
 </body>
